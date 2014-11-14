@@ -1,0 +1,48 @@
+a(name='intro')
+.jumbotron
+  h1 is
+    small v. 0.10.1
+  h5 Adding clarity and conciseness to your JS through predicates
+
+  br
+  :markdown
+    [is](https://github.com/landau/is) provides a slew of functions that allow
+    you to compare values and test types. This leads to more functional, concise,
+    legible, and correct code.
+
+    This is extremely useful when filtering data or comparing against a set of data.
+    ```js
+      ['venus', 'neptune', 1, []].filter(is.str); // ['venus', 'neptune']
+      [1.2, 3, 5].every(is.int) // false
+    ```
+
+    is also offers autocurrying for predicates of arity 2
+    ```js
+    var isInSet = is.contains([1, 2, 3]);
+    isInSet(1); // true
+    isInSet(5); // false
+
+    var hasKey = is.has({ name: 'Trevor', twitter: '@trevor_landau' });
+    hasKey('name'); // true
+    hasKey('myspace'); // false
+    ```
+
+    Make room on your utility belt next to [underscore](http://underscorejs.org) and [rambda](https://github.com/CrossEye/ramda)
+
+    ```js
+      _.filter([1, 2, 3], _.partial(is.less, 1)); // [2, 3]
+      _.partition([1, -2, -3, 4], is.pos); // [[1, 4], [-2, -3]]
+    ```
+
+    The project is [hosted on GitHub](https://github.com/landau/is).
+    You can report bugs and discuss features on the [issues page](https://github.com/landau/is/issues)
+    or send tweets to [@trevor_landau](https://twitter.com/trevor_landau).
+
+  br
+  h5 Install/Downloads
+  p Node&nbsp;
+    a(href='https://www.npmjs.org/package/is-predicate') npm install --save is-predicate
+  p Development&nbsp;
+    a(href='https://raw.githubusercontent.com/landau/is/master/dist/is.js') is.js
+  p Production&nbsp;
+    a(href='https://raw.githubusercontent.com/landau/is/master/dist/is.min.js') is.min.js

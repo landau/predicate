@@ -1,0 +1,5 @@
+/**
+ * @license is.js 
+ * (c) 2014 Trevor Landau <landautrevor@gmail.com> @trevor_landau
+ * is.js may be freely distributed under the MIT license.
+ */

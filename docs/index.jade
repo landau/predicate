@@ -1,0 +1,53 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title is.js
+    meta(name='generator' content='Bootply')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    include ./style
+  body
+    a(href='https://github.com/landau/is')
+      img(style='z-index:99999;position: fixed; top: 0; right: 0; border: 0;', src='https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67', alt='Fork me on GitHub', data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png')
+
+    .page-container
+      .col-sm-12
+        .row.row-offcanvas.row-offcanvas-left
+          include ./sidebar
+
+          //- main area
+          #main.col-xs-12.col-sm-7.col-sm-offset-3
+            include ./intro
+            include ./docs
+            hr
+            include ./changelog
+            #footer.well
+              | Copyright &copy&nbsp 
+              #{'2013-' + (new Date).getFullYear()}
+              | &nbsp;
+              a(href='http://trevorlandau.net') Trevor &lambda;andau
+
+      script(src='is.min.js')
+      script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+      script(src='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')
+      script.
+        $(document).ready(function() {
+          $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+          });
+
+          $('.btn-toggle').click(function() {
+            $(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
+          });
+        });
+      script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-36148349-8', 'landau.github.io');
+        ga('send', 'pageview');
+        
+
+

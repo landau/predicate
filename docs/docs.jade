@@ -1,0 +1,886 @@
+a(name='predicates')
+h1 Predicates
+hr
+.panel.panel-default
+  a(name='not')
+  .panel-heading
+    h4 not
+      small: code is.not
+
+  .panel-body
+    :markdown
+      A complemented version of the `is` predicate functions.
+      All predicate functions are available in this namespace.
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.null(null) // true
+        is.not.null(null) // false
+        ```
+.panel.panel-default
+  a(name='is')
+  .panel-heading
+    h4 is
+      small: code is.is(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `Object.is(a, b)`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.is(window, window) // true
+        is.is(1, 1) // true
+        is.is(NaN, 0/0) // true
+        is.is(0, -0) // false
+        is.is([], []) // false
+        ```
+.panel.panel-default
+  a(name='exists')
+  .panel-heading
+    h4 exists
+      small: code is.exists(val)
+
+  .panel-body
+    :markdown
+      Returns true if a value is not `null` or `undefined`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.exists(null) // false
+        is.exists(false) // true
+        is.exists(0) // true
+        is.exists('javascript') // true
+        ```
+.panel.panel-default
+  a(name='truthy')
+  .panel-heading
+    h4 truthy
+      small: code is.truthy(val)
+
+  .panel-body
+    :markdown
+      Returns true if a value `exists` and isn't `false`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.truthy(0) // true
+        is.truthy([1, 2]) // true
+        is.truthy(false) // false
+        is.truthy(null) // false
+        ```
+.panel.panel-default
+  a(name='falsey')
+  .panel-heading
+    h4 falsey
+      small: code is.falsey(val)
+
+  .panel-body
+    :markdown
+      Returns true if a value is `false` or `doesn't exist`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.falsey(0) // false
+        is.falsey([1, 2]) // false
+        is.falsey(false) // true
+        is.falsey(null) // true
+        ```
+.panel.panel-default
+  a(name='null')
+  .panel-heading
+    h4 null
+      small: code is.null(val)
+
+  .panel-body
+    :markdown
+      Returns true if a value is `null`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.null(null) // true
+        is.null(false) // false
+        is.null(undefined) // false
+        ```
+.panel.panel-default
+  a(name='undef')
+  .panel-heading
+    h4 undef
+      small: code is.undef(val)
+
+  .panel-body
+    :markdown
+      Returns true if a value is `undefined`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.undef(undefined) // true
+        is.undef(null) // false
+        is.undef(false) // false
+        ```
+.panel.panel-default
+  a(name='equal')
+  .panel-heading
+    h4 equal
+      small: code is.equal(a, b)
+
+
+  .panel-body
+    :markdown
+      Returns true if `a === b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.equal(1, 1) // true
+        is.equal('a', 'a') // true
+        is.equal(null, 1) // false
+        is.equal([1, 2], [1, 2]) // false
+        ```
+.panel.panel-default
+  a(name='eq')
+  .panel-heading
+    h4 eq
+      small: code is.eq(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `a == b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.eq('1', 1) // true
+        is.eq('a', 'b') // false
+        ```
+.panel.panel-default
+  a(name='less')
+  .panel-heading
+    h4 less
+      small: code is.less(a, b)
+    small alias 
+      code is.lt(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `a < b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.less(1, 5) // true
+        is.less(5, 5) // false
+        is.less(5, 1) // false
+        ```
+.panel.panel-default
+  a(name='lessEq')
+  .panel-heading
+    h4 lessEq
+      small: code is.lessEq(a, b)
+    small alias 
+      code is.ltEq(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `a <= b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.lessEq(1, 5) // true
+        is.lessEq(5, 5) // true
+        is.lessEq(5, 1) // false
+        ```
+.panel.panel-default
+  a(name='greater')
+  .panel-heading
+    h4 greater
+      small: code is.greater(a, b)
+    small alias 
+      code is.gt(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `a > b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.greater(5, 1) // true
+        is.greater(5, 5) // false
+        is.greater(1, 5) // false
+        ```
+.panel.panel-default
+  a(name='greaterEq')
+  .panel-heading
+    h4 greaterEq
+      small: code is.greaterEq(a, b)
+    small alias 
+      code is.gtEq(a, b)
+
+  .panel-body
+    :markdown
+      Returns true if `a > b`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.greaterEq(5, 1) // true
+        is.greaterEq(5, 5) // true
+        is.greaterEq(1, 5) // false
+        ```
+.panel.panel-default
+  a(name='object')
+  .panel-heading
+    h4 object
+      small: code is.object(val)
+    small alias 
+      code is.obj(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is an object
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.object({}) // true
+        is.object([]) // true
+        is.object(1) // false
+        ```
+.panel.panel-default
+  a(name='array')
+  .panel-heading
+    h4 array
+      small: code is.array(val)
+    small alias 
+      code is.arr(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is an array
+
+      *Defaults to native* `Array.isArray`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.array([]) // true
+        is.array({}) // false
+        is.array(1) // false
+        ```
+.panel.panel-default
+  a(name='date')
+  .panel-heading
+    h4 date
+      small: code is.date(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a date
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.date(new Date()) // true
+        is.date({}) // false
+        is.date(1) // false
+        ```
+.panel.panel-default
+  a(name='rgx')
+  .panel-heading
+    h4 rgx
+      small: code is.rgx(val)
+    small alias 
+      code is.RegExp(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a rgx
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.rgx(/\d{1,4}/) // true
+        is.rgx(new RegExp("Cosmos", "gi")) // true
+        is.rgx({}) // false
+        is.rgx("Dark Star") // false
+        ```
+.panel.panel-default
+  a(name='finite')
+  .panel-heading
+    h4 finite
+      small: code is.finite(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a `number` and `isFinite`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.finite(1) // true
+        is.finite(2e64) // true
+        is.finite(NaN) // false
+        is.finite('1') // false
+        is.finite(Infinity) // false
+        ```
+.panel.panel-default
+  a(name='NaN')
+  .panel-heading
+    h4 NaN
+      small: code is.NaN(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is `NaN`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.NaN(NaN) // true
+        is.NaN("titan") // false
+        is.NaN(1) // false
+        ```
+.panel.panel-default
+  a(name='arguments')
+  .panel-heading
+    h4 arguments
+      small: code is.arguments(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is an `arguments` object
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.arguments(arguments) // true
+        is.arguments("titan") // false
+        ```
+.panel.panel-default
+  a(name='error')
+  .panel-heading
+    h4 error
+      small: code is.error(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is an `error` object
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.error(new Error()) // true
+        is.error("titan") // false
+        ```
+.panel.panel-default
+  a(name='fn')
+  .panel-heading
+    h4 fn
+      small: code is.fn(val)
+    small alias 
+      code is.function(val)
+
+  .panel-body
+    :markdown
+      Returns true if `typeof val === 'function'`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.fn(is.fn) // true
+        is.fn(Math.max) // true
+        is.fn({}) // false
+        is.fn("Dark Star") // false
+        ```
+.panel.panel-default
+  a(name='num')
+  .panel-heading
+    h4 num
+      small: code is.num(val)
+    small alias 
+      code is.number(val)
+
+  .panel-body
+    :markdown
+      Returns true if `typeof val === 'number'`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.num(1) // true
+        is.num(NaN) // false
+        is.num({}) // false
+        is.num("Dark Star") // false
+        ```
+.panel.panel-default
+  a(name='str')
+  .panel-heading
+    h4 str
+      small: code is.str(val)
+    small alias 
+      code is.string(val)
+
+  .panel-body
+    :markdown
+      Returns true if `typeof val === 'string'`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.str("Dark Star") // true
+        is.str(1) // false
+        is.str({}) // false
+        ```
+.panel.panel-default
+  a(name='bool')
+  .panel-heading
+    h4 bool
+      small: code is.bool(val)
+    small alias 
+      code is.boolean(val)
+
+  .panel-body
+    :markdown
+      Returns true if `typeof val === 'boolean'`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.bool(true) // false
+        is.bool(false) // false
+        is.bool("Dark Star") // false
+        is.bool(1) // false
+        ```
+.panel.panel-default
+  a(name='int')
+  .panel-heading
+    h4 int
+      small: code is.int(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is an integer
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.int(1) // true
+        is.int(1.5) // false
+        ```
+.panel.panel-default
+  a(name='primitive')
+  .panel-heading
+    h4 primitive
+      small: code is.primitive(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a primitive value
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.primitive(1) // true
+        is.primitive('a') // true
+        is.primitive(null) // true
+        is.primitive(NaN) // true
+        is.primitive([]) // false
+        is.primitive({}) // false
+        ```
+.panel.panel-default
+  a(name='pos')
+  .panel-heading
+    h4 pos
+      small: code is.pos(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val > 0` and is a `number`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.pos(1) // true
+        is.pos(-2) // false
+        is.pos(0) // false
+        ```
+.panel.panel-default
+  a(name='neg')
+  .panel-heading
+    h4 neg
+      small: code is.neg(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val < 0` and is a `number`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.neg(-2) // true
+        is.neg(1) // false
+        is.neg(0) // false
+        ```
+.panel.panel-default
+  a(name='zero')
+  .panel-heading
+    h4 zero
+      small: code is.zero(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val === 0` and is a `number`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.zero(0) // true
+        is.zero(-2) // false
+        is.zero(1) // false
+        ```
+.panel.panel-default
+  a(name='even')
+  .panel-heading
+    h4 even
+      small: code is.even(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a `number`, not `zero`, and it's modulus of 2  is zero
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.even(2) // true
+        is.even(0) // false
+        is.even(1) // false
+        ```
+.panel.panel-default
+  a(name='odd')
+  .panel-heading
+    h4 odd
+      small: code is.odd(val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` is a `number`, not `zero`, and it's modulus of 2 is not zero
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.odd(1) // true
+        is.odd(2) // false
+        is.odd(0) // false
+        ```
+.panel.panel-default
+  a(name='contains')
+  .panel-heading
+    h4 contains
+      small: code is.contains(arr, val)
+
+  .panel-body
+    :markdown
+      Returns true if `val` exists in `arr`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var arr = [1, 2, 3, 4];
+        is.contains(arr, 2) // true
+        is.contains(arr, -5) // false
+        ```
+.panel.panel-default
+  a(name='empty')
+  .panel-heading
+    h4 empty
+      small: code is.empty(o)
+
+  .panel-body
+    :markdown
+      Returns true if `o` is an object and has no owned props
+
+      Returns true if `o` is an array or string of length zero
+
+      Throws `TypeError` if `o` is not an `Array`, `Object`, or `String`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.empty([]) // true
+        is.empty(['a']) // false
+        is.empty({}) // true
+        is.empty({foo: 'bar'}) // false
+        ```
+.panel.panel-default
+  a(name='has')
+  .panel-heading
+    h4 has
+      small: code is.has(o, key)
+
+  .panel-body
+    :markdown
+      Returns true if `string` `key` exists on `object` `o`
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var o = { planet: 'Earth' };
+        is.has(o, 'planet') // true
+        is.has(o, 'moon') // false
+        ```
+.panel.panel-default
+  a(name='instance')
+  .panel-heading
+    h4 instance
+      small: code is.instance(Cls, [inst])
+
+  .panel-body
+    :markdown
+      Returns true if `inst instanceof Cls` is `true`.
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        function Planet() {}
+        var p = new Planet();
+
+        var isPlanet = is.instance(Planet);
+        isPlanet(p); // true
+        is.instance(Planet, p); // true
+        ```
+.panel.panel-default
+  a(name='ternary')
+  .panel-heading
+    h4 ternary
+      small: code is.ternary(pred, [a [b]])
+
+  .panel-body
+    :markdown
+      **If a `pred` is given:**
+
+      Returns a `function(a, b)` that evaluates `pred(a, b)`
+      
+      **If `pred` and `a` and is given:**
+
+      Returns a `function(b)` that evaluates `pred(a, b)`
+
+      **If `pred` and `a` and `b` is given:**
+
+      Returns the evaluation of `pred(a, b)`
+
+      **If `pred` is of type `boolean`, `a`, and `b` are given**
+
+      Returns `bool` ? `a` : `b`
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var pred1 = is.ternary(is.less);
+        pred1(1, 2); // 1
+
+        var pred2 = is.ternary(is.less, 1);
+        pred2(2); // 1
+
+        is.ternary(is.less, 1, 2); // 1
+        is.ternary(1 < 2, 'a', 'b'); // 'a'
+        ```
+a(name='chaining')
+h1 Chaining
+hr
+.panel.panel-default
+  a(name='every')
+  .panel-heading
+    h4 every
+      small: code is.every()
+    small alias 
+      code is.all()
+
+  .panel-body
+    :markdown
+      Returns a chainable interface for lazily executing predicates.
+
+      Invoke `.val()` which returns `true` if all predicates evaluate
+      to `true`.
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var chain = is.every();
+        chain = chain.less(1, 2).fn(is.exists);
+        chain.val(); // true
+        chain.NaN(1).val(); // false
+
+        is.every().exists('mars').str('asteroid').val(); //true
+        ```
+.panel.panel-default
+  a(name='some')
+  .panel-heading
+    h4 some
+      small: code is.some()
+    small alias 
+      code is.any()
+
+  .panel-body
+    :markdown
+      Returns a chainable interface for lazily executing predicates.
+
+      Invoke `.val()` which returns `true` if at least 1 predicate evaluate
+      to `true`.
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var chain = is.some();
+        chain = chain.equal(1, 2).fn(is.exists);
+        chain.val(); // true
+        chain.NaN(1).val(); // true
+
+        is.some().exists(null).str('asteroid').val(); // true
+        is.some().exists(null).str(1).val(); // false
+        ```
+a(name='utils')
+h1 Utils
+hr
+.panel.panel-default
+  a(name='curry')
+  .panel-heading
+    h4 curry
+      small: code is.curry(fn)
+
+  .panel-body
+    :markdown
+      Returns a new function that curries a given `fn`.
+
+    small Used internally
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var fn = is.curry(function add(a, b) {
+          return a + b;
+        });
+        var fn2 = add(1);
+
+        fn2(2); // 3
+        fn2(5); // 6
+        fn(2, 2); // 4
+        ```
+.panel.panel-default
+  a(name='partial')
+  .panel-heading
+    h4 partial
+      small: code is.partial(fn, ...)
+
+  .panel-body
+    :markdown
+      Returns a partially applied function based on `fn`.
+
+    small Used internally
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var fn = is.partial(is.less, 1);
+        fn(2); // true
+        ```
+.panel.panel-default
+  a(name='complement')
+  .panel-heading
+    h4 complement
+      small: code is.complement(fn)
+    small alias
+      code is.invert(fn)
+
+  .panel-body
+    :markdown
+      Returns a function a that receives the same args as `fn` and returns
+      the opposite truth value.
+
+    small Used internally
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var fn = is.complement(is.fn);
+        fn(is.fn); // false
+        ```
+.panel.panel-default
+  a(name='mod')
+  .panel-heading
+    h4 mod
+      small: code is.mod(a, b)
+
+  .panel-body
+    :markdown
+      Returns the value of `a % b`
+
+    small Used internally
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        is.mod(6, 5); // 1
+        is.mod(6, 6); // 0
+        ```

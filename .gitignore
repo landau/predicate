@@ -1,0 +1,7 @@
+node_modules
+bower_componenets
+*.log
+
+/.coverage_data/
+/.coverage_debug/
+/cover_html/

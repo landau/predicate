@@ -1,0 +1,61 @@
+{
+  "name": "predicate",
+  "version": "0.10.1",
+  "description": "A set of predicate functions to improve your value testing and comparisons.",
+  "scripts": {
+    "pretest": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js ./test",
+    "test": "mocha -R spec --recursive test",
+    "docs": "jade ./docs/index.jade --out ./docs",
+    "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
+    "build-docs": "npm run docs && npm run changelog",
+    "build-dev": "cat ./docs/banner.txt > ./dist/is.js && browserify -s is index.js >> ./dist/is.js",
+    "build-prod": "cat ./docs/banner.txt > ./dist/is.min.js && uglifyjs ./dist/is.js >> ./dist/is.min.js",
+    "build": "npm run build-dev && npm run build-prod",
+    "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
+    "prepare": "npm ts && npm run build && npm run build-docs"
+  },
+  "main": "index.js",
+  "author": {
+    "name": "Trevor Landau",
+    "email": "landautrevor@gmail.com",
+    "url": "http://trevorlandau.net"
+  },
+  "homepage": "http://landau.github.io/is",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/landau/is"
+  },
+  "bugs": {
+    "url": "http://github.com/landau/is/issues"
+  },
+  "keywords": [
+    "functional",
+    "predicates",
+    "predicate",
+    "pred",
+    "type",
+    "instance",
+    "comparator",
+    "compare",
+    "curry",
+    "partial",
+    "is",
+    "testing",
+    "test",
+    "chain",
+    "chaining"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^3.44.2",
+    "jade": "^1.5.0",
+    "jshint": "^2.5.2",
+    "jshint-stylish": "^0.4.0",
+    "lodash": "~2.4.1",
+    "marked": "^0.3.2",
+    "matcha": "^0.5.0",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4",
+    "uglify-js": "^2.4.13"
+  }
+}

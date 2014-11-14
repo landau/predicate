@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>is.js</title><meta name="generator" content="Bootply"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><style type="text/css">@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
+html,body {
+  height: 100%;
+  font-family: 'Droid Sans Mono', sans-serif;
+}
+
+p,h1,h2,h3,h4 {
+  font-family: 'Droid Sans Mono', sans-serif;
+}
+
+hr {
+  border-color:#222;
+}
+
+/* wrapper for page content to push down footer */
+.page-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* negative indent footer by its height*/
+  margin: 0 auto -120px;
+  /*pad bottom by footer height */
+  padding: 0 0 70px;
+}
+
+/* set the fixed height of the footer here */
+#footer {
+  border: none;
+  font-weight: 100;
+  font-family: 'Droid Sans Mono', sans-serif;
+  width: 500px;
+  background: none;
+  color: #efefef;
+}
+
+body {
+  background: #1E1E1E;
+  color: #f9f9f9;
+}
+a, small {
+  color:#bcbcbc;
+}
+.text-center {
+  padding-top: 20px;
+}
+
+#main {
+  padding-top: 30px;
+}
+
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-bottom: 100px;
+  position: fixed;
+  left: 0;
+  overflow: scroll;
+}
+
+#sidebar .affix {
+  position:fixed;
+  top:55;
+  width:220px;
+}
+
+#sidebar .affix-bottom {
+  position:fixed;
+  top:55;
+  width:220px;
+}
+
+#sidebar .nav {
+  width: 95%;
+}
+
+#sidebar li {
+  border:0 #1e1e1e solid;
+  border-bottom-width:1px;
+  margin-left: 10px;
+}
+
+#sidebar li.heading {
+  border:0 #1e1e1e solid;
+  border-bottom-width:1px;
+  margin-left: 0px;
+  font-size: 125%;
+}
+
+#sidebar li a {
+  padding-left:1px;
+}
+
+#sidebar li a:hover {
+  background-color:#222222;
+  color:#ffffff;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 41.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+  #sidebar .nav>li {
+    color: #ddd;
+    background: linear-gradient(#3E3E3E, #383838);
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
+    padding-left:10px;
+  }
+  #sidebar .nav>li:first-child {
+    border-top:0;
+  }
+  #sidebar .nav>li>a {
+    color: #ddd;
+  }
+  #sidebar .nav>li>a>img {
+    max-width: 14px;
+  }
+  #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
+    text-decoration: none;
+    background: linear-gradient(#373737, #323232);
+    color: #fff;  
+  }
+  #sidebar .nav .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+  #sidebar .nav a:hover .caret{
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+}
+
+/* theme */
+.btn,.form-control,.alert,.progress,.panel,.list-group,.well,.list-group-item:first-child {border-radius:1px;box-shadow:0 0 0;}
+.btn {border-color:transparent;}
+.btn-default,.well {
+  background-color:#cccccc;
+  border-color:#c0c0c0;
+}
+.btn-primary,.label-primary,.list-group-item.active,.list-group-item.active:hover,.list-group-item.active:focus,.btn.active,a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+  background-color:#0099CC;
+  border-color:transparent;
+}
+.btn-info,.label-info,.progress-bar-info {
+  background-color:#33b5e5;
+}
+.btn-success,.label-success,.progress-bar-success {
+  background-color:#669900;
+}
+.btn-danger,.label-danger,.progress-bar-danger {
+  background-color:#FF4444;
+}
+.btn-warning,.label-warning,.progress-bar-warning {
+  background-color:#FFBB33;
+  color:#444444;
+}
+.nav-tabs>li>a {
+  border-radius:0;
+}
+
+h3,h4,h5,.panel {
+  color:#555555;
+}
+.panel hr {
+  border-color:#efefef;
+}
+
+code {
+  color: #58b;
+}
+
+.jumbotron {
+  background-color: transparent;
+  border-radius: 1px;
+}
+
+.jumbotron h1 {
+  color: #bbb;
+}
+
+.jumbotron h4 {
+  color: #666;
+}
+
+.jumbotron a {
+  color: #8be;
+}
+.jumbotron small {
+  font-size: 16px;
+  color: #666;
+}
+
+.jumbotron p {
+  font-size: 14px;
+}
+.changelog code {
+  background: #444;
+  color: #ddd;
+}</style></head><body><a href="https://github.com/landau/is"><img style="z-index:99999;position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><div class="page-container"><div class="col-sm-12"><div class="row row-offcanvas row-offcanvas-left"><div id="sidebar" role="navigation" class="col-xs-6 col-sm-2 sidebar-offcanvas"><div><ul id="sidebar-nav" class="nav"><li class="heading"><a href="#intro">Intro</a></li><li class="heading"><a href="#predicates">Predicates</a></li><li><a href="#not">is.not</a></li><li><a href="#is">is.is</a></li><li><a href="#exists">is.exists</a></li><li><a href="#truthy">is.truthy</a></li><li><a href="#falsey">is.falsey</a></li><li><a href="#null">is.null</a></li><li><a href="#undef">is.undef</a></li><li><a href="#equal">is.equal</a></li><li><a href="#eq">is.eq</a></li><li><a href="#less">is.less</a></li><li><a href="#lessEq">is.lessEq</a></li><li><a href="#greater">is.greater</a></li><li><a href="#greaterEq">is.greaterEq</a></li><li><a href="#object">is.object</a></li><li><a href="#array">is.array</a></li><li><a href="#date">is.date</a></li><li><a href="#rgx">is.rgx</a></li><li><a href="#finite">is.finite</a></li><li><a href="#NaN">is.NaN</a></li><li><a href="#arguments">is.arguments</a></li><li><a href="#error">is.error</a></li><li><a href="#fn">is.fn</a></li><li><a href="#num">is.num</a></li><li><a href="#str">is.str</a></li><li><a href="#bool">is.bool</a></li><li><a href="#int">is.int</a></li><li><a href="#primitive">is.primitive</a></li><li><a href="#pos">is.pos</a></li><li><a href="#neg">is.neg</a></li><li><a href="#zero">is.zero</a></li><li><a href="#even">is.even</a></li><li><a href="#odd">is.odd</a></li><li><a href="#contains">is.contains</a></li><li><a href="#empty">is.empty</a></li><li><a href="#has">is.has</a></li><li><a href="#instance">is.instance</a></li><li><a href="#ternary">is.ternary</a></li><li class="heading"><a href="#chaining">Chaining</a></li><li><a href="#every">is.every</a></li><li><a href="#some">is.some</a></li><li class="heading"><a href="#utils">Utils</a></li><li><a href="#curry">is.curry</a></li><li><a href="#partial">is.partial</a></li><li><a href="#complement">is.complement</a></li><li><a href="#mod">is.mod</a></li><li class="heading"><a href="#changelog">changelog</a></li></ul></div></div><div id="main" class="col-xs-12 col-sm-7 col-sm-offset-3"><a name="intro"></a><div class="jumbotron"><h1>is<small>v. 0.10.1</small></h1><h5>Adding clarity and conciseness to your JS through predicates</h5><br><p><a href="https://github.com/landau/is">is</a> provides a slew of functions that allow
+you to compare values and test types. This leads to more functional, concise,
+legible, and correct code.</p>
+<p>This is extremely useful when filtering data or comparing against a set of data.</p>
+<pre><code class="lang-js">  [&#39;venus&#39;, &#39;neptune&#39;, 1, []].filter(is.str); // [&#39;venus&#39;, &#39;neptune&#39;]
+  [1.2, 3, 5].every(is.int) // false
+</code></pre>
+<p>is also offers autocurrying for predicates of arity 2</p>
+<pre><code class="lang-js">var isInSet = is.contains([1, 2, 3]);
+isInSet(1); // true
+isInSet(5); // false
+
+var hasKey = is.has({ name: &#39;Trevor&#39;, twitter: &#39;@trevor_landau&#39; });
+hasKey(&#39;name&#39;); // true
+hasKey(&#39;myspace&#39;); // false
+</code></pre>
+<p>Make room on your utility belt next to <a href="http://underscorejs.org">underscore</a> and <a href="https://github.com/CrossEye/ramda">rambda</a></p>
+<pre><code class="lang-js">  _.filter([1, 2, 3], _.partial(is.less, 1)); // [2, 3]
+  _.partition([1, -2, -3, 4], is.pos); // [[1, 4], [-2, -3]]
+</code></pre>
+<p>The project is <a href="https://github.com/landau/is">hosted on GitHub</a>.
+You can report bugs and discuss features on the <a href="https://github.com/landau/is/issues">issues page</a>
+or send tweets to <a href="https://twitter.com/trevor_landau">@trevor_landau</a>.</p>
+<br><h5>Install/Downloads</h5><p>Node&nbsp;<a href="https://www.npmjs.org/package/is-predicate">npm install --save is-predicate</a></p><p>Development&nbsp;<a href="https://raw.githubusercontent.com/landau/is/master/dist/is.js">is.js</a></p><p>Production&nbsp;<a href="https://raw.githubusercontent.com/landau/is/master/dist/is.min.js">is.min.js</a></p></div><a name="predicates"></a><h1>Predicates</h1><hr><div class="panel panel-default"><a name="not"></a><div class="panel-heading"><h4>not<small><code>is.not</code></small></h4></div><div class="panel-body"><p>A complemented version of the <code>is</code> predicate functions.
+All predicate functions are available in this namespace.</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.null(null) // true
+is.not.null(null) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="is"></a><div class="panel-heading"><h4>is<small><code>is.is(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>Object.is(a, b)</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.is(window, window) // true
+is.is(1, 1) // true
+is.is(NaN, 0/0) // true
+is.is(0, -0) // false
+is.is([], []) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="exists"></a><div class="panel-heading"><h4>exists<small><code>is.exists(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is not <code>null</code> or <code>undefined</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.exists(null) // false
+is.exists(false) // true
+is.exists(0) // true
+is.exists(&#39;javascript&#39;) // true
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="truthy"></a><div class="panel-heading"><h4>truthy<small><code>is.truthy(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value <code>exists</code> and isn&#39;t <code>false</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.truthy(0) // true
+is.truthy([1, 2]) // true
+is.truthy(false) // false
+is.truthy(null) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="falsey"></a><div class="panel-heading"><h4>falsey<small><code>is.falsey(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>false</code> or <code>doesn&#39;t exist</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.falsey(0) // false
+is.falsey([1, 2]) // false
+is.falsey(false) // true
+is.falsey(null) // true
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="null"></a><div class="panel-heading"><h4>null<small><code>is.null(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>null</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.null(null) // true
+is.null(false) // false
+is.null(undefined) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="undef"></a><div class="panel-heading"><h4>undef<small><code>is.undef(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>undefined</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.undef(undefined) // true
+is.undef(null) // false
+is.undef(false) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="equal"></a><div class="panel-heading"><h4>equal<small><code>is.equal(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a === b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.equal(1, 1) // true
+is.equal(&#39;a&#39;, &#39;a&#39;) // true
+is.equal(null, 1) // false
+is.equal([1, 2], [1, 2]) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="eq"></a><div class="panel-heading"><h4>eq<small><code>is.eq(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a == b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.eq(&#39;1&#39;, 1) // true
+is.eq(&#39;a&#39;, &#39;b&#39;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="less"></a><div class="panel-heading"><h4>less<small><code>is.less(a, b)</code></small></h4><small>alias <code>is.lt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.less(1, 5) // true
+is.less(5, 5) // false
+is.less(5, 1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="lessEq"></a><div class="panel-heading"><h4>lessEq<small><code>is.lessEq(a, b)</code></small></h4><small>alias <code>is.ltEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt;= b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.lessEq(1, 5) // true
+is.lessEq(5, 5) // true
+is.lessEq(5, 1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="greater"></a><div class="panel-heading"><h4>greater<small><code>is.greater(a, b)</code></small></h4><small>alias <code>is.gt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.greater(5, 1) // true
+is.greater(5, 5) // false
+is.greater(1, 5) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="greaterEq"></a><div class="panel-heading"><h4>greaterEq<small><code>is.greaterEq(a, b)</code></small></h4><small>alias <code>is.gtEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.greaterEq(5, 1) // true
+is.greaterEq(5, 5) // true
+is.greaterEq(1, 5) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="object"></a><div class="panel-heading"><h4>object<small><code>is.object(val)</code></small></h4><small>alias <code>is.obj(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.object({}) // true
+is.object([]) // true
+is.object(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="array"></a><div class="panel-heading"><h4>array<small><code>is.array(val)</code></small></h4><small>alias <code>is.arr(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an array</p>
+<p><em>Defaults to native</em> <code>Array.isArray</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.array([]) // true
+is.array({}) // false
+is.array(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="date"></a><div class="panel-heading"><h4>date<small><code>is.date(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a date</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.date(new Date()) // true
+is.date({}) // false
+is.date(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="rgx"></a><div class="panel-heading"><h4>rgx<small><code>is.rgx(val)</code></small></h4><small>alias <code>is.RegExp(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is a rgx</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.rgx(/\d{1,4}/) // true
+is.rgx(new RegExp(&quot;Cosmos&quot;, &quot;gi&quot;)) // true
+is.rgx({}) // false
+is.rgx(&quot;Dark Star&quot;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="finite"></a><div class="panel-heading"><h4>finite<small><code>is.finite(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code> and <code>isFinite</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.finite(1) // true
+is.finite(2e64) // true
+is.finite(NaN) // false
+is.finite(&#39;1&#39;) // false
+is.finite(Infinity) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="NaN"></a><div class="panel-heading"><h4>NaN<small><code>is.NaN(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is <code>NaN</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.NaN(NaN) // true
+is.NaN(&quot;titan&quot;) // false
+is.NaN(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="arguments"></a><div class="panel-heading"><h4>arguments<small><code>is.arguments(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>arguments</code> object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.arguments(arguments) // true
+is.arguments(&quot;titan&quot;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="error"></a><div class="panel-heading"><h4>error<small><code>is.error(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>error</code> object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.error(new Error()) // true
+is.error(&quot;titan&quot;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="fn"></a><div class="panel-heading"><h4>fn<small><code>is.fn(val)</code></small></h4><small>alias <code>is.function(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;function&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.fn(is.fn) // true
+is.fn(Math.max) // true
+is.fn({}) // false
+is.fn(&quot;Dark Star&quot;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="num"></a><div class="panel-heading"><h4>num<small><code>is.num(val)</code></small></h4><small>alias <code>is.number(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;number&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.num(1) // true
+is.num(NaN) // false
+is.num({}) // false
+is.num(&quot;Dark Star&quot;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="str"></a><div class="panel-heading"><h4>str<small><code>is.str(val)</code></small></h4><small>alias <code>is.string(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;string&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.str(&quot;Dark Star&quot;) // true
+is.str(1) // false
+is.str({}) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="bool"></a><div class="panel-heading"><h4>bool<small><code>is.bool(val)</code></small></h4><small>alias <code>is.boolean(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;boolean&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.bool(true) // false
+is.bool(false) // false
+is.bool(&quot;Dark Star&quot;) // false
+is.bool(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="int"></a><div class="panel-heading"><h4>int<small><code>is.int(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an integer</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.int(1) // true
+is.int(1.5) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="primitive"></a><div class="panel-heading"><h4>primitive<small><code>is.primitive(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a primitive value</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.primitive(1) // true
+is.primitive(&#39;a&#39;) // true
+is.primitive(null) // true
+is.primitive(NaN) // true
+is.primitive([]) // false
+is.primitive({}) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="pos"></a><div class="panel-heading"><h4>pos<small><code>is.pos(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &gt; 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.pos(1) // true
+is.pos(-2) // false
+is.pos(0) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="neg"></a><div class="panel-heading"><h4>neg<small><code>is.neg(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &lt; 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.neg(-2) // true
+is.neg(1) // false
+is.neg(0) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="zero"></a><div class="panel-heading"><h4>zero<small><code>is.zero(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val === 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.zero(0) // true
+is.zero(-2) // false
+is.zero(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="even"></a><div class="panel-heading"><h4>even<small><code>is.even(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2  is zero</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.even(2) // true
+is.even(0) // false
+is.even(1) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="odd"></a><div class="panel-heading"><h4>odd<small><code>is.odd(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2 is not zero</p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.odd(1) // true
+is.odd(2) // false
+is.odd(0) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="contains"></a><div class="panel-heading"><h4>contains<small><code>is.contains(arr, val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> exists in <code>arr</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">var arr = [1, 2, 3, 4];
+is.contains(arr, 2) // true
+is.contains(arr, -5) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="empty"></a><div class="panel-heading"><h4>empty<small><code>is.empty(o)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>o</code> is an object and has no owned props</p>
+<p>Returns true if <code>o</code> is an array or string of length zero</p>
+<p>Throws <code>TypeError</code> if <code>o</code> is not an <code>Array</code>, <code>Object</code>, or <code>String</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">is.empty([]) // true
+is.empty([&#39;a&#39;]) // false
+is.empty({}) // true
+is.empty({foo: &#39;bar&#39;}) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="has"></a><div class="panel-heading"><h4>has<small><code>is.has(o, key)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>string</code> <code>key</code> exists on <code>object</code> <code>o</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">var o = { planet: &#39;Earth&#39; };
+is.has(o, &#39;planet&#39;) // true
+is.has(o, &#39;moon&#39;) // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="instance"></a><div class="panel-heading"><h4>instance<small><code>is.instance(Cls, [inst])</code></small></h4></div><div class="panel-body"><p>Returns true if <code>inst instanceof Cls</code> is <code>true</code>.</p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">function Planet() {}
+var p = new Planet();
+
+var isPlanet = is.instance(Planet);
+isPlanet(p); // true
+is.instance(Planet, p); // true
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="ternary"></a><div class="panel-heading"><h4>ternary<small><code>is.ternary(pred, [a [b]])</code></small></h4></div><div class="panel-body"><p><strong>If a <code>pred</code> is given:</strong></p>
+<p>Returns a <code>function(a, b)</code> that evaluates <code>pred(a, b)</code></p>
+<p><strong>If <code>pred</code> and <code>a</code> and is given:</strong></p>
+<p>Returns a <code>function(b)</code> that evaluates <code>pred(a, b)</code></p>
+<p><strong>If <code>pred</code> and <code>a</code> and <code>b</code> is given:</strong></p>
+<p>Returns the evaluation of <code>pred(a, b)</code></p>
+<p><strong>If <code>pred</code> is of type <code>boolean</code>, <code>a</code>, and <code>b</code> are given</strong></p>
+<p>Returns <code>bool</code> ? <code>a</code> : <code>b</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">var pred1 = is.ternary(is.less);
+pred1(1, 2); // 1
+
+var pred2 = is.ternary(is.less, 1);
+pred2(2); // 1
+
+is.ternary(is.less, 1, 2); // 1
+is.ternary(1 &lt; 2, &#39;a&#39;, &#39;b&#39;); // &#39;a&#39;
+</code></pre>
+</p></div></div><a name="chaining"></a><h1>Chaining</h1><hr><div class="panel panel-default"><a name="every"></a><div class="panel-heading"><h4>every<small><code>is.every()</code></small></h4><small>alias <code>is.all()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
+<p>Invoke <code>.val()</code> which returns <code>true</code> if all predicates evaluate
+to <code>true</code>.</p>
+<hr><p><small>Example</small><pre><code class="lang-js">var chain = is.every();
+chain = chain.less(1, 2).fn(is.exists);
+chain.val(); // true
+chain.NaN(1).val(); // false
+
+is.every().exists(&#39;mars&#39;).str(&#39;asteroid&#39;).val(); //true
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="some"></a><div class="panel-heading"><h4>some<small><code>is.some()</code></small></h4><small>alias <code>is.any()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
+<p>Invoke <code>.val()</code> which returns <code>true</code> if at least 1 predicate evaluate
+to <code>true</code>.</p>
+<hr><p><small>Example</small><pre><code class="lang-js">var chain = is.some();
+chain = chain.equal(1, 2).fn(is.exists);
+chain.val(); // true
+chain.NaN(1).val(); // true
+
+is.some().exists(null).str(&#39;asteroid&#39;).val(); // true
+is.some().exists(null).str(1).val(); // false
+</code></pre>
+</p></div></div><a name="utils"></a><h1>Utils</h1><hr><div class="panel panel-default"><a name="curry"></a><div class="panel-heading"><h4>curry<small><code>is.curry(fn)</code></small></h4></div><div class="panel-body"><p>Returns a new function that curries a given <code>fn</code>.</p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.curry(function add(a, b) {
+  return a + b;
+});
+var fn2 = add(1);
+
+fn2(2); // 3
+fn2(5); // 6
+fn(2, 2); // 4
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="partial"></a><div class="panel-heading"><h4>partial<small><code>is.partial(fn, ...)</code></small></h4></div><div class="panel-body"><p>Returns a partially applied function based on <code>fn</code>.</p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.partial(is.less, 1);
+fn(2); // true
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="complement"></a><div class="panel-heading"><h4>complement<small><code>is.complement(fn)</code></small></h4><small>alias<code>is.invert(fn)</code></small></div><div class="panel-body"><p>Returns a function a that receives the same args as <code>fn</code> and returns
+the opposite truth value.</p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.complement(is.fn);
+fn(is.fn); // false
+</code></pre>
+</p></div></div><div class="panel panel-default"><a name="mod"></a><div class="panel-heading"><h4>mod<small><code>is.mod(a, b)</code></small></h4></div><div class="panel-body"><p>Returns the value of <code>a % b</code></p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">is.mod(6, 5); // 1
+is.mod(6, 6); // 0
+</code></pre>
+</p></div></div><hr><a name="changelog"></a><div class="changelog"><h2 id="changelog">changelog</h2>
+<h4 id="0-10-0">0.10.0</h4>
+<ul>
+<li>Added <code>is.primitive</code> (<a href="https://twitter.com/tgriesser">@tgriesser</a>)</li>
+<li>Update docs with <code>is.empty</code> (<a href="https://twitter.com/BlaineBublitz">@BlaineBublitz</a>)</li>
+<li><code>is.empty</code> now throws for invalid types</li>
+</ul>
+<h4 id="0-9-0">0.9.0</h4>
+<ul>
+<li>Added <code>is.is</code> based off polyfill from MDN</li>
+<li>Added alias for <code>is.object</code> and <code>is.arr</code></li>
+<li><code>is.num(NaN)</code> now returns false</li>
+</ul>
+<h4 id="0-8-2">0.8.2</h4>
+<ul>
+<li>Correctly test for NaN in <code>is.contains</code></li>
+</ul>
+<h4 id="0-8-1">0.8.1</h4>
+<ul>
+<li>Fix currying issue with <code>is.not</code></li>
+</ul>
+<h4 id="0-8-0">0.8.0</h4>
+<ul>
+<li>Added <code>is.curry</code> which is used internally</li>
+<li>Added autocurrying for all functions that are arity 2</li>
+<li><code>is.complement</code> can now return a function instead of just <code>booleans</code></li>
+<li><code>is.truthy</code> and <code>is.falsey</code> now respect js falsey values (eg 0, &#39;&#39;, etc)</li>
+</ul>
+<h4 id="0-7-3">0.7.3</h4>
+<ul>
+<li>Refactored file structure</li>
+</ul>
+<h4 id="0-7-2">0.7.2</h4>
+<ul>
+<li>Update docs</li>
+</ul>
+<h4 id="0-7-1">0.7.1</h4>
+<ul>
+<li>Converted module to node style package</li>
+<li>build process uses browserify standalone</li>
+<li>Tests now in JS instead of CS (run much faster!)</li>
+<li>Internal changes around chaining</li>
+<li>Dropped gulp</li>
+</ul>
+<h4 id="0-7-0">0.7.0</h4>
+<ul>
+<li>Added <code>even</code>, <code>odd</code></li>
+<li>Exposed <code>mod</code></li>
+<li>Even more improved docs!</li>
+</ul>
+<h4 id="0-6-0">0.6.0</h4>
+<ul>
+<li>Removed <code>cmp</code></li>
+<li>Added <code>is.empty</code></li>
+<li>Alias <code>is.invert</code> as <code>is.complement</code></li>
+<li>Expose <code>is.partial</code> from internals</li>
+<li>Improved docs</li>
+</ul>
+<h4 id="0-5-0">0.5.0</h4>
+<ul>
+<li>Added <code>is.zero</code></li>
+<li>Fix <code>is.object</code> and <code>is.error</code></li>
+<li><code>is.ternary</code> now supports partial application</li>
+<li><code>is.gt</code>, <code>is.gtEq</code>, <code>is.lt</code>, <code>is.ltEq</code> aliases added</li>
+</ul>
+<h4 id="0-4-0">0.4.0</h4>
+<ul>
+<li>Support for lazy chain evaluation</li>
+</ul>
+<h4 id="0-3-0">0.3.0</h4>
+<ul>
+<li>Expose `is.invert</li>
+<li>Added `is.contains</li>
+<li>Added `is.has</li>
+<li>Remove bower support</li>
+</ul>
+<h4 id="0-2-0">0.2.0</h4>
+<ul>
+<li>Added <code>is.pos</code></li>
+<li>Added <code>is.neg</code></li>
+<li>Added <code>is.ternary</code></li>
+<li>Added <code>is.not</code>, which inverses all boolean returning predicate methods</li>
+</ul>
+<h4 id="0-1-1">0.1.1</h4>
+<ul>
+<li>Added is.bool/boolean method</li>
+</ul>
+<h4 id="0-1-0">0.1.0</h4>
+<ul>
+<li>Release</li>
+</ul>
+</div><div id="footer" class="well">Copyright &copy&nbsp <2013-2014></2013-2014>&nbsp;<a href="http://trevorlandau.net">Trevor &lambda;andau</a></div></div></div></div><script src="is.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script><script>$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+
+  $('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
+  });
+});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-36148349-8', 'landau.github.io');
+ga('send', 'pageview');</script></div></body></html>

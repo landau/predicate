@@ -1,0 +1,8 @@
+/.coverage_data/
+/.coverage_debug/
+/cover_html/
+
+/.coverignore
+/.jshintrc
+/.npmignore
+/.travis.yml
