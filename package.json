@@ -47,15 +47,14 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^3.44.2",
-    "jade": "^1.5.0",
-    "jshint": "^2.5.2",
-    "jshint-stylish": "^0.4.0",
+    "browserify": "3.44.2",
+    "jade": "1.5.0",
+    "jshint": "2.5.2",
+    "jshint-stylish": "1.0.0",
     "lodash": "~2.4.1",
-    "marked": "^0.3.2",
-    "matcha": "^0.5.0",
-    "mocha": "^1.21.4",
-    "should": "^4.0.4",
-    "uglify-js": "^2.4.13"
+    "marked": "0.3.2",
+    "mocha": "2.0.1",
+    "should": "4.0.4",
+    "uglify-js": "2.4.13"
   }
 }
