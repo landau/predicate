@@ -16,7 +16,7 @@ var Bar, Foo, addNotTest, addTest, falses, testClasses, truths, _,
   };
 
 var _ = require('lodash');
-var is = require('../');
+var predicate = require('../');
 require('should');
 
 testClasses = {
@@ -46,20 +46,20 @@ var addTest = function(fn, val, expected, shorthand) {
   if (Array.isArray(val) && val.length) {
 
     it('should return `' + expected + '` for values `' + val + '`', function() {
-      (is[fn].apply(null, val)).should.be[expected];
+      (predicate[fn].apply(null, val)).should.be[expected];
     });
 
   } else {
 
     it('should return `' + expected + '` for value `' + val + '`', function() {
-      (is[fn](val)).should.be[expected];
+      (predicate[fn](val)).should.be[expected];
     });
 
   }
 
   if (_.isString(shorthand)) {
     it('should have a shorthand method `' + shorthand + '` for method `' + fn + '`', function() {
-      is[shorthand].should.equal(is[fn]);
+      predicate[shorthand].should.equal(predicate[fn]);
     });
   }
 };
@@ -67,11 +67,11 @@ var addTest = function(fn, val, expected, shorthand) {
 var addNotTest = function(fn, val, expected) {
   if (Array.isArray(val) && val.length) {
     return it('should return `' + expected + '` for values `' + val + '`', function() {
-      return (is.not[fn].apply(null, val)).should.be[expected];
+      return (predicate.not[fn].apply(null, val)).should.be[expected];
     });
   } else {
     return it('should return `' + expected + '` for value `' + val + '`', function() {
-      return (is.not[fn](val)).should.be[expected];
+      return (predicate.not[fn](val)).should.be[expected];
     });
   }
 };
@@ -80,7 +80,7 @@ truths = ['dog', 1, [], {}];
 
 falses = [null, void 0];
 
-describe('is', function() {
+describe('predicate', function() {
   var tests;
   tests = {
     is: {
@@ -282,7 +282,7 @@ describe('is', function() {
   describe('#arguments', function() {
     it('should return true for arguments', function() {
       var fn = function() {
-        return (is.arguments(arguments)).should.be.true;
+        return (predicate.arguments(arguments)).should.be.true;
       };
 
       fn();
@@ -295,7 +295,7 @@ describe('is', function() {
 
   describe('#invert', function() {
     before(function() {
-      this.testFn = is.invert(is.fn);
+      this.testFn = predicate.invert(predicate.fn);
     });
 
     it('should return a function', function() {
@@ -303,11 +303,11 @@ describe('is', function() {
     });
 
     it('should return an inverted value', function() {
-      this.testFn(is.equal).should.false;
+      this.testFn(predicate.equal).should.false;
     });
 
     it('should alias complement', function() {
-      is.invert.should.equal(is.complement);
+      predicate.invert.should.equal(predicate.complement);
     });
   });
 
@@ -316,30 +316,30 @@ describe('is', function() {
     arr = [1, 2, 3];
 
     it('should return false if the value is not found', function() {
-      is.contains(arr, 5).should.be.false;
+      predicate.contains(arr, 5).should.be.false;
     });
 
     it('should return true if the value is found', function() {
-      is.contains(arr, 1).should.be.true;
-      is.contains(arr, 2).should.be.true;
-      is.contains(arr, 3).should.be.true;
-      is.contains([0, NaN], NaN).should.be.true;
+      predicate.contains(arr, 1).should.be.true;
+      predicate.contains(arr, 2).should.be.true;
+      predicate.contains(arr, 3).should.be.true;
+      predicate.contains([0, NaN], NaN).should.be.true;
     });
   });
 
   describe('#empty', function() {
     it('should return true for an empty array', function() {
-      is.empty([]).should.be.true;
+      predicate.empty([]).should.be.true;
     });
 
     it('should return false for a non-empty array', function() {
-      is.empty([1]).should.be.false;
+      predicate.empty([1]).should.be.false;
     });
 
     it('should throw for non str/arr/obj', function() {
       var err = null;
       try {
-        is.empty(true);
+        predicate.empty(true);
       } catch(e) { err = e; }
       err.should.be.instanceOf(TypeError);
     });
@@ -348,13 +348,13 @@ describe('is', function() {
 
   describe('#has', function() {
     it('should return true if the key is found', function() {
-      is.has({
+      predicate.has({
         foo: 3
       }, 'foo').should.be.true;
     });
 
     it('should return false if the key is not on on the obj', function() {
-      is.has({
+      predicate.has({
         foo: 3
       }, 'toString').should.be.false;
     });
@@ -363,30 +363,30 @@ describe('is', function() {
 
   describe('#ternary', function() {
     it('should return 1 for a truthy value', function() {
-      is.ternary(true, 1, 2).should.equal(1);
+      predicate.ternary(true, 1, 2).should.equal(1);
     });
 
     it('should return 2 for a falsey value', function() {
-      is.ternary(false, 1, 2).should.equal(2);
+      predicate.ternary(false, 1, 2).should.equal(2);
     });
 
     it('should return 1 for a lesser value', function() {
-      is.ternary(is.less, 1, 2).should.equal(1);
+      predicate.ternary(predicate.less, 1, 2).should.equal(1);
     });
 
     it('should return 1 for a greater value', function() {
-      is.ternary(is.less, 2, 1).should.equal(1);
+      predicate.ternary(predicate.less, 2, 1).should.equal(1);
     });
 
     it('should return a function for a pred given', function() {
-      var fn = is.ternary(is.less);
+      var fn = predicate.ternary(predicate.less);
       fn.should.be.a.function;
       fn(1, 2).should.equal(1);
       fn(2, 1).should.equal(1);
     });
 
     it('should return a function for a pred and arg given', function() {
-      var fn = is.ternary(is.less, 1);
+      var fn = predicate.ternary(predicate.less, 1);
       fn.should.be.a.function;
       fn(2).should.equal(1);
     });
@@ -394,43 +394,43 @@ describe('is', function() {
 
   describe('#every', function() {
     it('should map to .all', function() {
-      is.every.should.equal(is.all);
+      predicate.every.should.equal(predicate.all);
     });
 
     it('should return an object', function() {
-      is.every().should.be.an.object;
+      predicate.every().should.be.an.object;
     });
 
     it('should allow chaining', function() {
-      is.every().equal(1, 1).str('5').val().should.be.ok;
-      is.every().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
-      is.every().str(1).contains([1, 2, 3], 1).val().should.be.false;
-      is.every().str('foo').contains([1, 2, 3], 5).val().should.be.false;
+      predicate.every().equal(1, 1).str('5').val().should.be.ok;
+      predicate.every().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
+      predicate.every().str(1).contains([1, 2, 3], 1).val().should.be.false;
+      predicate.every().str('foo').contains([1, 2, 3], 5).val().should.be.false;
     });
   });
 
   describe('#some', function() {
     it('should map to .any', function() {
-      is.some.should.equal(is.any);
+      predicate.some.should.equal(predicate.any);
     });
 
     it('should return an object', function() {
-      is.some().should.be.an.object;
+      predicate.some().should.be.an.object;
     });
 
     it('should allow chaining', function() {
-      is.some().equal(1, 1).str('5').val().should.be.ok;
-      is.some().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
-      is.some().str(1).contains([1, 2, 3], 1).val().should.be.ok;
-      is.some().str('foo').contains([1, 2, 3], 5).val().should.be.ok;
-      is.some().num('foo').contains([1, 2, 3], 5).val().should.be.false;
+      predicate.some().equal(1, 1).str('5').val().should.be.ok;
+      predicate.some().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
+      predicate.some().str(1).contains([1, 2, 3], 1).val().should.be.ok;
+      predicate.some().str('foo').contains([1, 2, 3], 5).val().should.be.ok;
+      predicate.some().num('foo').contains([1, 2, 3], 5).val().should.be.false;
     });
   });
 
   describe('#Lazy', function() {
     it('should call `val` when valueOf is called', function() {
-      +(is.some().equal(1, 1).str('5')).should.be.ok;
-      !!(is.some().equal(1, 1).str('5')).should.be.ok;
+      +(predicate.some().equal(1, 1).str('5')).should.be.ok;
+      !!(predicate.some().equal(1, 1).str('5')).should.be.ok;
     });
   });
 
@@ -438,7 +438,7 @@ describe('is', function() {
     var fn = null;
 
     before(function() {
-      fn = is.partial(is.less, 1);
+      fn = predicate.partial(predicate.less, 1);
     });
 
     it('should return a fn', function() {
@@ -456,7 +456,7 @@ describe('is', function() {
         return a + b;
       };
 
-      this.fn = is.curry(this.add);
+      this.fn = predicate.curry(this.add);
     });
 
     it('should return an fn', function() {
@@ -488,8 +488,8 @@ describe('is', function() {
       this.fn(1, 2).should.equal(3);
     });
 
-    it('should curry with is.not', function() {
-      var fn = is.not.equal(1);
+    it('should curry with predicate.not', function() {
+      var fn = predicate.not.equal(1);
       fn.should.be.a.function;
       fn(1).should.be.false;
       fn(2).should.be.true;
@@ -498,8 +498,8 @@ describe('is', function() {
 
   describe('#mod', function() {
     it('should return a modulus value', function() {
-      is.mod(6, 5).should.equal(1);
-      is.mod(6, 6).should.equal(0);
+      predicate.mod(6, 5).should.equal(1);
+      predicate.mod(6, 6).should.equal(0);
     });
   });
 
@@ -507,7 +507,7 @@ describe('is', function() {
     it('should copy values to a new object', function() {
       var x = { foo: 'bar' };
       var y = { bar: 'foo' };
-      var z = is.assign(x, y);
+      var z = predicate.assign(x, y);
       z.foo.should.equal('bar');
       z.bar.should.equal('foo');
     });
