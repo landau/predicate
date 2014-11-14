@@ -1,4 +1,7 @@
     ## changelog
+    #### 0.10.2
+    - Changed from is.js to predicate.js
+
     #### 0.10.0
     - Added `is.primitive` ([@tgriesser](https://twitter.com/tgriesser))
     - Update docs with `is.empty` ([@BlaineBublitz](https://twitter.com/BlaineBublitz))

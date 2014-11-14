@@ -5,25 +5,25 @@ hr
   a(name='not')
   .panel-heading
     h4 not
-      small: code is.not
+      small: code predicate.not
 
   .panel-body
     :markdown
-      A complemented version of the `is` predicate functions.
+      A complemented version of the `predicate` predicate functions.
       All predicate functions are available in this namespace.
     hr
     p
       small Example
       :markdown
         ```js
-        is.null(null) // true
-        is.not.null(null) // false
+        predicate.null(null) // true
+        predicate.not.null(null) // false
         ```
 .panel.panel-default
   a(name='is')
   .panel-heading
     h4 is
-      small: code is.is(a, b)
+      small: code predicate.is(a, b)
 
   .panel-body
     :markdown
@@ -34,17 +34,17 @@ hr
       small Example
       :markdown
         ```js
-        is.is(window, window) // true
-        is.is(1, 1) // true
-        is.is(NaN, 0/0) // true
-        is.is(0, -0) // false
-        is.is([], []) // false
+        predicate.is(window, window) // true
+        predicate.is(1, 1) // true
+        predicate.is(NaN, 0/0) // true
+        predicate.is(0, -0) // false
+        predicate.is([], []) // false
         ```
 .panel.panel-default
   a(name='exists')
   .panel-heading
     h4 exists
-      small: code is.exists(val)
+      small: code predicate.exists(val)
 
   .panel-body
     :markdown
@@ -54,16 +54,16 @@ hr
       small Example
       :markdown
         ```js
-        is.exists(null) // false
-        is.exists(false) // true
-        is.exists(0) // true
-        is.exists('javascript') // true
+        predicate.exists(null) // false
+        predicate.exists(false) // true
+        predicate.exists(0) // true
+        predicate.exists('javascript') // true
         ```
 .panel.panel-default
   a(name='truthy')
   .panel-heading
     h4 truthy
-      small: code is.truthy(val)
+      small: code predicate.truthy(val)
 
   .panel-body
     :markdown
@@ -73,16 +73,16 @@ hr
       small Example
       :markdown
         ```js
-        is.truthy(0) // true
-        is.truthy([1, 2]) // true
-        is.truthy(false) // false
-        is.truthy(null) // false
+        predicate.truthy(0) // true
+        predicate.truthy([1, 2]) // true
+        predicate.truthy(false) // false
+        predicate.truthy(null) // false
         ```
 .panel.panel-default
   a(name='falsey')
   .panel-heading
     h4 falsey
-      small: code is.falsey(val)
+      small: code predicate.falsey(val)
 
   .panel-body
     :markdown
@@ -92,16 +92,16 @@ hr
       small Example
       :markdown
         ```js
-        is.falsey(0) // false
-        is.falsey([1, 2]) // false
-        is.falsey(false) // true
-        is.falsey(null) // true
+        predicate.falsey(0) // false
+        predicate.falsey([1, 2]) // false
+        predicate.falsey(false) // true
+        predicate.falsey(null) // true
         ```
 .panel.panel-default
   a(name='null')
   .panel-heading
     h4 null
-      small: code is.null(val)
+      small: code predicate.null(val)
 
   .panel-body
     :markdown
@@ -111,15 +111,15 @@ hr
       small Example
       :markdown
         ```js
-        is.null(null) // true
-        is.null(false) // false
-        is.null(undefined) // false
+        predicate.null(null) // true
+        predicate.null(false) // false
+        predicate.null(undefined) // false
         ```
 .panel.panel-default
   a(name='undef')
   .panel-heading
     h4 undef
-      small: code is.undef(val)
+      small: code predicate.undef(val)
 
   .panel-body
     :markdown
@@ -129,15 +129,15 @@ hr
       small Example
       :markdown
         ```js
-        is.undef(undefined) // true
-        is.undef(null) // false
-        is.undef(false) // false
+        predicate.undef(undefined) // true
+        predicate.undef(null) // false
+        predicate.undef(false) // false
         ```
 .panel.panel-default
   a(name='equal')
   .panel-heading
     h4 equal
-      small: code is.equal(a, b)
+      small: code predicate.equal(a, b)
 
 
   .panel-body
@@ -149,16 +149,16 @@ hr
       small Example
       :markdown
         ```js
-        is.equal(1, 1) // true
-        is.equal('a', 'a') // true
-        is.equal(null, 1) // false
-        is.equal([1, 2], [1, 2]) // false
+        predicate.equal(1, 1) // true
+        predicate.equal('a', 'a') // true
+        predicate.equal(null, 1) // false
+        predicate.equal([1, 2], [1, 2]) // false
         ```
 .panel.panel-default
   a(name='eq')
   .panel-heading
     h4 eq
-      small: code is.eq(a, b)
+      small: code predicate.eq(a, b)
 
   .panel-body
     :markdown
@@ -169,16 +169,16 @@ hr
       small Example
       :markdown
         ```js
-        is.eq('1', 1) // true
-        is.eq('a', 'b') // false
+        predicate.eq('1', 1) // true
+        predicate.eq('a', 'b') // false
         ```
 .panel.panel-default
   a(name='less')
   .panel-heading
     h4 less
-      small: code is.less(a, b)
+      small: code predicate.less(a, b)
     small alias 
-      code is.lt(a, b)
+      code predicate.lt(a, b)
 
   .panel-body
     :markdown
@@ -189,17 +189,17 @@ hr
       small Example
       :markdown
         ```js
-        is.less(1, 5) // true
-        is.less(5, 5) // false
-        is.less(5, 1) // false
+        predicate.less(1, 5) // true
+        predicate.less(5, 5) // false
+        predicate.less(5, 1) // false
         ```
 .panel.panel-default
   a(name='lessEq')
   .panel-heading
     h4 lessEq
-      small: code is.lessEq(a, b)
+      small: code predicate.lessEq(a, b)
     small alias 
-      code is.ltEq(a, b)
+      code predicate.ltEq(a, b)
 
   .panel-body
     :markdown
@@ -210,17 +210,17 @@ hr
       small Example
       :markdown
         ```js
-        is.lessEq(1, 5) // true
-        is.lessEq(5, 5) // true
-        is.lessEq(5, 1) // false
+        predicate.lessEq(1, 5) // true
+        predicate.lessEq(5, 5) // true
+        predicate.lessEq(5, 1) // false
         ```
 .panel.panel-default
   a(name='greater')
   .panel-heading
     h4 greater
-      small: code is.greater(a, b)
+      small: code predicate.greater(a, b)
     small alias 
-      code is.gt(a, b)
+      code predicate.gt(a, b)
 
   .panel-body
     :markdown
@@ -231,17 +231,17 @@ hr
       small Example
       :markdown
         ```js
-        is.greater(5, 1) // true
-        is.greater(5, 5) // false
-        is.greater(1, 5) // false
+        predicate.greater(5, 1) // true
+        predicate.greater(5, 5) // false
+        predicate.greater(1, 5) // false
         ```
 .panel.panel-default
   a(name='greaterEq')
   .panel-heading
     h4 greaterEq
-      small: code is.greaterEq(a, b)
+      small: code predicate.greaterEq(a, b)
     small alias 
-      code is.gtEq(a, b)
+      code predicate.gtEq(a, b)
 
   .panel-body
     :markdown
@@ -252,17 +252,17 @@ hr
       small Example
       :markdown
         ```js
-        is.greaterEq(5, 1) // true
-        is.greaterEq(5, 5) // true
-        is.greaterEq(1, 5) // false
+        predicate.greaterEq(5, 1) // true
+        predicate.greaterEq(5, 5) // true
+        predicate.greaterEq(1, 5) // false
         ```
 .panel.panel-default
   a(name='object')
   .panel-heading
     h4 object
-      small: code is.object(val)
+      small: code predicate.object(val)
     small alias 
-      code is.obj(val)
+      code predicate.obj(val)
 
   .panel-body
     :markdown
@@ -272,17 +272,17 @@ hr
       small Example
       :markdown
         ```js
-        is.object({}) // true
-        is.object([]) // true
-        is.object(1) // false
+        predicate.object({}) // true
+        predicate.object([]) // true
+        predicate.object(1) // false
         ```
 .panel.panel-default
   a(name='array')
   .panel-heading
     h4 array
-      small: code is.array(val)
+      small: code predicate.array(val)
     small alias 
-      code is.arr(val)
+      code predicate.arr(val)
 
   .panel-body
     :markdown
@@ -294,15 +294,15 @@ hr
       small Example
       :markdown
         ```js
-        is.array([]) // true
-        is.array({}) // false
-        is.array(1) // false
+        predicate.array([]) // true
+        predicate.array({}) // false
+        predicate.array(1) // false
         ```
 .panel.panel-default
   a(name='date')
   .panel-heading
     h4 date
-      small: code is.date(val)
+      small: code predicate.date(val)
 
   .panel-body
     :markdown
@@ -312,17 +312,17 @@ hr
       small Example
       :markdown
         ```js
-        is.date(new Date()) // true
-        is.date({}) // false
-        is.date(1) // false
+        predicate.date(new Date()) // true
+        predicate.date({}) // false
+        predicate.date(1) // false
         ```
 .panel.panel-default
   a(name='rgx')
   .panel-heading
     h4 rgx
-      small: code is.rgx(val)
+      small: code predicate.rgx(val)
     small alias 
-      code is.RegExp(val)
+      code predicate.RegExp(val)
 
   .panel-body
     :markdown
@@ -332,16 +332,16 @@ hr
       small Example
       :markdown
         ```js
-        is.rgx(/\d{1,4}/) // true
-        is.rgx(new RegExp("Cosmos", "gi")) // true
-        is.rgx({}) // false
-        is.rgx("Dark Star") // false
+        predicate.rgx(/\d{1,4}/) // true
+        predicate.rgx(new RegExp("Cosmos", "gi")) // true
+        predicate.rgx({}) // false
+        predicate.rgx("Dark Star") // false
         ```
 .panel.panel-default
   a(name='finite')
   .panel-heading
     h4 finite
-      small: code is.finite(val)
+      small: code predicate.finite(val)
 
   .panel-body
     :markdown
@@ -351,17 +351,17 @@ hr
       small Example
       :markdown
         ```js
-        is.finite(1) // true
-        is.finite(2e64) // true
-        is.finite(NaN) // false
-        is.finite('1') // false
-        is.finite(Infinity) // false
+        predicate.finite(1) // true
+        predicate.finite(2e64) // true
+        predicate.finite(NaN) // false
+        predicate.finite('1') // false
+        predicate.finite(Infinity) // false
         ```
 .panel.panel-default
   a(name='NaN')
   .panel-heading
     h4 NaN
-      small: code is.NaN(val)
+      small: code predicate.NaN(val)
 
   .panel-body
     :markdown
@@ -371,15 +371,15 @@ hr
       small Example
       :markdown
         ```js
-        is.NaN(NaN) // true
-        is.NaN("titan") // false
-        is.NaN(1) // false
+        predicate.NaN(NaN) // true
+        predicate.NaN("titan") // false
+        predicate.NaN(1) // false
         ```
 .panel.panel-default
   a(name='arguments')
   .panel-heading
     h4 arguments
-      small: code is.arguments(val)
+      small: code predicate.arguments(val)
 
   .panel-body
     :markdown
@@ -389,14 +389,14 @@ hr
       small Example
       :markdown
         ```js
-        is.arguments(arguments) // true
-        is.arguments("titan") // false
+        predicate.arguments(arguments) // true
+        predicate.arguments("titan") // false
         ```
 .panel.panel-default
   a(name='error')
   .panel-heading
     h4 error
-      small: code is.error(val)
+      small: code predicate.error(val)
 
   .panel-body
     :markdown
@@ -406,16 +406,16 @@ hr
       small Example
       :markdown
         ```js
-        is.error(new Error()) // true
-        is.error("titan") // false
+        predicate.error(new Error()) // true
+        predicate.error("titan") // false
         ```
 .panel.panel-default
   a(name='fn')
   .panel-heading
     h4 fn
-      small: code is.fn(val)
+      small: code predicate.fn(val)
     small alias 
-      code is.function(val)
+      code predicate.function(val)
 
   .panel-body
     :markdown
@@ -425,18 +425,18 @@ hr
       small Example
       :markdown
         ```js
-        is.fn(is.fn) // true
-        is.fn(Math.max) // true
-        is.fn({}) // false
-        is.fn("Dark Star") // false
+        predicate.fn(predicate.fn) // true
+        predicate.fn(Math.max) // true
+        predicate.fn({}) // false
+        predicate.fn("Dark Star") // false
         ```
 .panel.panel-default
   a(name='num')
   .panel-heading
     h4 num
-      small: code is.num(val)
+      small: code predicate.num(val)
     small alias 
-      code is.number(val)
+      code predicate.number(val)
 
   .panel-body
     :markdown
@@ -446,18 +446,18 @@ hr
       small Example
       :markdown
         ```js
-        is.num(1) // true
-        is.num(NaN) // false
-        is.num({}) // false
-        is.num("Dark Star") // false
+        predicate.num(1) // true
+        predicate.num(NaN) // false
+        predicate.num({}) // false
+        predicate.num("Dark Star") // false
         ```
 .panel.panel-default
   a(name='str')
   .panel-heading
     h4 str
-      small: code is.str(val)
+      small: code predicate.str(val)
     small alias 
-      code is.string(val)
+      code predicate.string(val)
 
   .panel-body
     :markdown
@@ -467,17 +467,17 @@ hr
       small Example
       :markdown
         ```js
-        is.str("Dark Star") // true
-        is.str(1) // false
-        is.str({}) // false
+        predicate.str("Dark Star") // true
+        predicate.str(1) // false
+        predicate.str({}) // false
         ```
 .panel.panel-default
   a(name='bool')
   .panel-heading
     h4 bool
-      small: code is.bool(val)
+      small: code predicate.bool(val)
     small alias 
-      code is.boolean(val)
+      code predicate.boolean(val)
 
   .panel-body
     :markdown
@@ -487,16 +487,16 @@ hr
       small Example
       :markdown
         ```js
-        is.bool(true) // false
-        is.bool(false) // false
-        is.bool("Dark Star") // false
-        is.bool(1) // false
+        predicate.bool(true) // false
+        predicate.bool(false) // false
+        predicate.bool("Dark Star") // false
+        predicate.bool(1) // false
         ```
 .panel.panel-default
   a(name='int')
   .panel-heading
     h4 int
-      small: code is.int(val)
+      small: code predicate.int(val)
 
   .panel-body
     :markdown
@@ -506,14 +506,14 @@ hr
       small Example
       :markdown
         ```js
-        is.int(1) // true
-        is.int(1.5) // false
+        predicate.int(1) // true
+        predicate.int(1.5) // false
         ```
 .panel.panel-default
   a(name='primitive')
   .panel-heading
     h4 primitive
-      small: code is.primitive(val)
+      small: code predicate.primitive(val)
 
   .panel-body
     :markdown
@@ -523,18 +523,18 @@ hr
       small Example
       :markdown
         ```js
-        is.primitive(1) // true
-        is.primitive('a') // true
-        is.primitive(null) // true
-        is.primitive(NaN) // true
-        is.primitive([]) // false
-        is.primitive({}) // false
+        predicate.primitive(1) // true
+        predicate.primitive('a') // true
+        predicate.primitive(null) // true
+        predicate.primitive(NaN) // true
+        predicate.primitive([]) // false
+        predicate.primitive({}) // false
         ```
 .panel.panel-default
   a(name='pos')
   .panel-heading
     h4 pos
-      small: code is.pos(val)
+      small: code predicate.pos(val)
 
   .panel-body
     :markdown
@@ -544,15 +544,15 @@ hr
       small Example
       :markdown
         ```js
-        is.pos(1) // true
-        is.pos(-2) // false
-        is.pos(0) // false
+        predicate.pos(1) // true
+        predicate.pos(-2) // false
+        predicate.pos(0) // false
         ```
 .panel.panel-default
   a(name='neg')
   .panel-heading
     h4 neg
-      small: code is.neg(val)
+      small: code predicate.neg(val)
 
   .panel-body
     :markdown
@@ -562,15 +562,15 @@ hr
       small Example
       :markdown
         ```js
-        is.neg(-2) // true
-        is.neg(1) // false
-        is.neg(0) // false
+        predicate.neg(-2) // true
+        predicate.neg(1) // false
+        predicate.neg(0) // false
         ```
 .panel.panel-default
   a(name='zero')
   .panel-heading
     h4 zero
-      small: code is.zero(val)
+      small: code predicate.zero(val)
 
   .panel-body
     :markdown
@@ -580,15 +580,15 @@ hr
       small Example
       :markdown
         ```js
-        is.zero(0) // true
-        is.zero(-2) // false
-        is.zero(1) // false
+        predicate.zero(0) // true
+        predicate.zero(-2) // false
+        predicate.zero(1) // false
         ```
 .panel.panel-default
   a(name='even')
   .panel-heading
     h4 even
-      small: code is.even(val)
+      small: code predicate.even(val)
 
   .panel-body
     :markdown
@@ -598,15 +598,15 @@ hr
       small Example
       :markdown
         ```js
-        is.even(2) // true
-        is.even(0) // false
-        is.even(1) // false
+        predicate.even(2) // true
+        predicate.even(0) // false
+        predicate.even(1) // false
         ```
 .panel.panel-default
   a(name='odd')
   .panel-heading
     h4 odd
-      small: code is.odd(val)
+      small: code predicate.odd(val)
 
   .panel-body
     :markdown
@@ -616,15 +616,15 @@ hr
       small Example
       :markdown
         ```js
-        is.odd(1) // true
-        is.odd(2) // false
-        is.odd(0) // false
+        predicate.odd(1) // true
+        predicate.odd(2) // false
+        predicate.odd(0) // false
         ```
 .panel.panel-default
   a(name='contains')
   .panel-heading
     h4 contains
-      small: code is.contains(arr, val)
+      small: code predicate.contains(arr, val)
 
   .panel-body
     :markdown
@@ -636,14 +636,14 @@ hr
       :markdown
         ```js
         var arr = [1, 2, 3, 4];
-        is.contains(arr, 2) // true
-        is.contains(arr, -5) // false
+        predicate.contains(arr, 2) // true
+        predicate.contains(arr, -5) // false
         ```
 .panel.panel-default
   a(name='empty')
   .panel-heading
     h4 empty
-      small: code is.empty(o)
+      small: code predicate.empty(o)
 
   .panel-body
     :markdown
@@ -657,16 +657,16 @@ hr
       small Example
       :markdown
         ```js
-        is.empty([]) // true
-        is.empty(['a']) // false
-        is.empty({}) // true
-        is.empty({foo: 'bar'}) // false
+        predicate.empty([]) // true
+        predicate.empty(['a']) // false
+        predicate.empty({}) // true
+        predicate.empty({foo: 'bar'}) // false
         ```
 .panel.panel-default
   a(name='has')
   .panel-heading
     h4 has
-      small: code is.has(o, key)
+      small: code predicate.has(o, key)
 
   .panel-body
     :markdown
@@ -678,14 +678,14 @@ hr
       :markdown
         ```js
         var o = { planet: 'Earth' };
-        is.has(o, 'planet') // true
-        is.has(o, 'moon') // false
+        predicate.has(o, 'planet') // true
+        predicate.has(o, 'moon') // false
         ```
 .panel.panel-default
   a(name='instance')
   .panel-heading
     h4 instance
-      small: code is.instance(Cls, [inst])
+      small: code predicate.instance(Cls, [inst])
 
   .panel-body
     :markdown
@@ -699,15 +699,15 @@ hr
         function Planet() {}
         var p = new Planet();
 
-        var isPlanet = is.instance(Planet);
+        var isPlanet = predicate.instance(Planet);
         isPlanet(p); // true
-        is.instance(Planet, p); // true
+        predicate.instance(Planet, p); // true
         ```
 .panel.panel-default
   a(name='ternary')
   .panel-heading
     h4 ternary
-      small: code is.ternary(pred, [a [b]])
+      small: code predicate.ternary(pred, [a [b]])
 
   .panel-body
     :markdown
@@ -731,14 +731,14 @@ hr
       small Example
       :markdown
         ```js
-        var pred1 = is.ternary(is.less);
+        var pred1 = predicate.ternary(predicate.less);
         pred1(1, 2); // 1
 
-        var pred2 = is.ternary(is.less, 1);
+        var pred2 = predicate.ternary(predicate.less, 1);
         pred2(2); // 1
 
-        is.ternary(is.less, 1, 2); // 1
-        is.ternary(1 < 2, 'a', 'b'); // 'a'
+        predicate.ternary(predicate.less, 1, 2); // 1
+        predicate.ternary(1 < 2, 'a', 'b'); // 'a'
         ```
 a(name='chaining')
 h1 Chaining
@@ -747,9 +747,9 @@ hr
   a(name='every')
   .panel-heading
     h4 every
-      small: code is.every()
+      small: code predicate.every()
     small alias 
-      code is.all()
+      code predicate.all()
 
   .panel-body
     :markdown
@@ -762,20 +762,20 @@ hr
       small Example
       :markdown
         ```js
-        var chain = is.every();
-        chain = chain.less(1, 2).fn(is.exists);
+        var chain = predicate.every();
+        chain = chain.less(1, 2).fn(predicate.exists);
         chain.val(); // true
         chain.NaN(1).val(); // false
 
-        is.every().exists('mars').str('asteroid').val(); //true
+        predicate.every().exists('mars').str('asteroid').val(); //true
         ```
 .panel.panel-default
   a(name='some')
   .panel-heading
     h4 some
-      small: code is.some()
+      small: code predicate.some()
     small alias 
-      code is.any()
+      code predicate.any()
 
   .panel-body
     :markdown
@@ -788,13 +788,13 @@ hr
       small Example
       :markdown
         ```js
-        var chain = is.some();
-        chain = chain.equal(1, 2).fn(is.exists);
+        var chain = predicate.some();
+        chain = chain.equal(1, 2).fn(predicate.exists);
         chain.val(); // true
         chain.NaN(1).val(); // true
 
-        is.some().exists(null).str('asteroid').val(); // true
-        is.some().exists(null).str(1).val(); // false
+        predicate.some().exists(null).str('asteroid').val(); // true
+        predicate.some().exists(null).str(1).val(); // false
         ```
 a(name='utils')
 h1 Utils
@@ -803,7 +803,7 @@ hr
   a(name='curry')
   .panel-heading
     h4 curry
-      small: code is.curry(fn)
+      small: code predicate.curry(fn)
 
   .panel-body
     :markdown
@@ -815,7 +815,7 @@ hr
       small Example
       :markdown
         ```js
-        var fn = is.curry(function add(a, b) {
+        var fn = predicate.curry(function add(a, b) {
           return a + b;
         });
         var fn2 = add(1);
@@ -828,7 +828,7 @@ hr
   a(name='partial')
   .panel-heading
     h4 partial
-      small: code is.partial(fn, ...)
+      small: code predicate.partial(fn, ...)
 
   .panel-body
     :markdown
@@ -840,16 +840,16 @@ hr
       small Example
       :markdown
         ```js
-        var fn = is.partial(is.less, 1);
+        var fn = predicate.partial(predicate.less, 1);
         fn(2); // true
         ```
 .panel.panel-default
   a(name='complement')
   .panel-heading
     h4 complement
-      small: code is.complement(fn)
+      small: code predicate.complement(fn)
     small alias
-      code is.invert(fn)
+      code predicate.invert(fn)
 
   .panel-body
     :markdown
@@ -862,14 +862,14 @@ hr
       small Example
       :markdown
         ```js
-        var fn = is.complement(is.fn);
-        fn(is.fn); // false
+        var fn = predicate.complement(predicate.fn);
+        fn(predicate.fn); // false
         ```
 .panel.panel-default
   a(name='mod')
   .panel-heading
     h4 mod
-      small: code is.mod(a, b)
+      small: code predicate.mod(a, b)
 
   .panel-body
     :markdown
@@ -881,6 +881,6 @@ hr
       small Example
       :markdown
         ```js
-        is.mod(6, 5); // 1
-        is.mod(6, 6); // 0
+        predicate.mod(6, 5); // 1
+        predicate.mod(6, 6); // 0
         ```

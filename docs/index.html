@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>is.js</title><meta name="generator" content="Bootply"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><style type="text/css">@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>predicate.js</title><meta name="generator" content="Bootply"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><style type="text/css">@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
 
 html,body {
   height: 100%;
@@ -224,228 +224,228 @@ code {
 .changelog code {
   background: #444;
   color: #ddd;
-}</style></head><body><a href="https://github.com/landau/is"><img style="z-index:99999;position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><div class="page-container"><div class="col-sm-12"><div class="row row-offcanvas row-offcanvas-left"><div id="sidebar" role="navigation" class="col-xs-6 col-sm-2 sidebar-offcanvas"><div><ul id="sidebar-nav" class="nav"><li class="heading"><a href="#intro">Intro</a></li><li class="heading"><a href="#predicates">Predicates</a></li><li><a href="#not">is.not</a></li><li><a href="#is">is.is</a></li><li><a href="#exists">is.exists</a></li><li><a href="#truthy">is.truthy</a></li><li><a href="#falsey">is.falsey</a></li><li><a href="#null">is.null</a></li><li><a href="#undef">is.undef</a></li><li><a href="#equal">is.equal</a></li><li><a href="#eq">is.eq</a></li><li><a href="#less">is.less</a></li><li><a href="#lessEq">is.lessEq</a></li><li><a href="#greater">is.greater</a></li><li><a href="#greaterEq">is.greaterEq</a></li><li><a href="#object">is.object</a></li><li><a href="#array">is.array</a></li><li><a href="#date">is.date</a></li><li><a href="#rgx">is.rgx</a></li><li><a href="#finite">is.finite</a></li><li><a href="#NaN">is.NaN</a></li><li><a href="#arguments">is.arguments</a></li><li><a href="#error">is.error</a></li><li><a href="#fn">is.fn</a></li><li><a href="#num">is.num</a></li><li><a href="#str">is.str</a></li><li><a href="#bool">is.bool</a></li><li><a href="#int">is.int</a></li><li><a href="#primitive">is.primitive</a></li><li><a href="#pos">is.pos</a></li><li><a href="#neg">is.neg</a></li><li><a href="#zero">is.zero</a></li><li><a href="#even">is.even</a></li><li><a href="#odd">is.odd</a></li><li><a href="#contains">is.contains</a></li><li><a href="#empty">is.empty</a></li><li><a href="#has">is.has</a></li><li><a href="#instance">is.instance</a></li><li><a href="#ternary">is.ternary</a></li><li class="heading"><a href="#chaining">Chaining</a></li><li><a href="#every">is.every</a></li><li><a href="#some">is.some</a></li><li class="heading"><a href="#utils">Utils</a></li><li><a href="#curry">is.curry</a></li><li><a href="#partial">is.partial</a></li><li><a href="#complement">is.complement</a></li><li><a href="#mod">is.mod</a></li><li class="heading"><a href="#changelog">changelog</a></li></ul></div></div><div id="main" class="col-xs-12 col-sm-7 col-sm-offset-3"><a name="intro"></a><div class="jumbotron"><h1>is<small>v. 0.10.1</small></h1><h5>Adding clarity and conciseness to your JS through predicates</h5><br><p><a href="https://github.com/landau/is">is</a> provides a slew of functions that allow
+}</style></head><body><a href="https://github.com/landau/predicate"><img style="z-index:99999;position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><div class="page-container"><div class="col-sm-12"><div class="row row-offcanvas row-offcanvas-left"><div id="sidebar" role="navigation" class="col-xs-6 col-sm-2 sidebar-offcanvas"><div><ul id="sidebar-nav" class="nav"><li class="heading"><a href="#intro">Intro</a></li><li class="heading"><a href="#predicates">Predicates</a></li><li><a href="#not">predicate.not</a></li><li><a href="#predicate">is.is</a></li><li><a href="#expredicatets">is.exists</a></li><li><a href="#truthy">predicate.truthy</a></li><li><a href="#falsey">predicate.falsey</a></li><li><a href="#null">predicate.null</a></li><li><a href="#undef">predicate.undef</a></li><li><a href="#equal">predicate.equal</a></li><li><a href="#eq">predicate.eq</a></li><li><a href="#less">predicate.less</a></li><li><a href="#lessEq">predicate.lessEq</a></li><li><a href="#greater">predicate.greater</a></li><li><a href="#greaterEq">predicate.greaterEq</a></li><li><a href="#object">predicate.object</a></li><li><a href="#array">predicate.array</a></li><li><a href="#date">predicate.date</a></li><li><a href="#rgx">predicate.rgx</a></li><li><a href="#finite">predicate.finite</a></li><li><a href="#NaN">predicate.NaN</a></li><li><a href="#arguments">predicate.arguments</a></li><li><a href="#error">predicate.error</a></li><li><a href="#fn">predicate.fn</a></li><li><a href="#num">predicate.num</a></li><li><a href="#str">predicate.str</a></li><li><a href="#bool">predicate.bool</a></li><li><a href="#int">predicate.int</a></li><li><a href="#primitive">predicate.primitive</a></li><li><a href="#pos">predicate.pos</a></li><li><a href="#neg">predicate.neg</a></li><li><a href="#zero">predicate.zero</a></li><li><a href="#even">predicate.even</a></li><li><a href="#odd">predicate.odd</a></li><li><a href="#contains">predicate.contains</a></li><li><a href="#empty">predicate.empty</a></li><li><a href="#has">predicate.has</a></li><li><a href="#instance">predicate.instance</a></li><li><a href="#ternary">predicate.ternary</a></li><li class="heading"><a href="#chaining">Chaining</a></li><li><a href="#every">predicate.every</a></li><li><a href="#some">predicate.some</a></li><li class="heading"><a href="#utils">Utils</a></li><li><a href="#curry">predicate.curry</a></li><li><a href="#partial">predicate.partial</a></li><li><a href="#complement">predicate.complement</a></li><li><a href="#mod">predicate.mod</a></li><li class="heading"><a href="#changelog">changelog</a></li></ul></div></div><div id="main" class="col-xs-12 col-sm-7 col-sm-offset-3"><a name="intro"></a><div class="jumbotron"><h1>predicate.js<small>v. 0.10.1</small></h1><h5>Adding clarity and conciseness to your JS through predicates</h5><br><p><a href="https://github.com/landau/predicate">predicate</a> provides a slew of functions that allow
 you to compare values and test types. This leads to more functional, concise,
 legible, and correct code.</p>
 <p>This is extremely useful when filtering data or comparing against a set of data.</p>
-<pre><code class="lang-js">  [&#39;venus&#39;, &#39;neptune&#39;, 1, []].filter(is.str); // [&#39;venus&#39;, &#39;neptune&#39;]
-  [1.2, 3, 5].every(is.int) // false
+<pre><code class="lang-js">  [&#39;venus&#39;, &#39;neptune&#39;, 1, []].filter(predicate.str); // [&#39;venus&#39;, &#39;neptune&#39;]
+  [1.2, 3, 5].every(predicate.int) // false
 </code></pre>
 <p>is also offers autocurrying for predicates of arity 2</p>
-<pre><code class="lang-js">var isInSet = is.contains([1, 2, 3]);
+<pre><code class="lang-js">var isInSet = predicate.contains([1, 2, 3]);
 isInSet(1); // true
 isInSet(5); // false
 
-var hasKey = is.has({ name: &#39;Trevor&#39;, twitter: &#39;@trevor_landau&#39; });
+var hasKey = predicate.has({ name: &#39;Trevor&#39;, twitter: &#39;@trevor_landau&#39; });
 hasKey(&#39;name&#39;); // true
 hasKey(&#39;myspace&#39;); // false
 </code></pre>
-<p>Make room on your utility belt next to <a href="http://underscorejs.org">underscore</a> and <a href="https://github.com/CrossEye/ramda">rambda</a></p>
-<pre><code class="lang-js">  _.filter([1, 2, 3], _.partial(is.less, 1)); // [2, 3]
-  _.partition([1, -2, -3, 4], is.pos); // [[1, 4], [-2, -3]]
+<p>Make room on your utility belt next to <a href="http://underscorejs.org">underscore</a></p>
+<pre><code class="lang-js">  _.filter([1, 2, 3], predicate.less(1)); // [2, 3]
+  _.partition([1, -2, -3, 4], predicate.pos); // [[1, 4], [-2, -3]]
 </code></pre>
-<p>The project is <a href="https://github.com/landau/is">hosted on GitHub</a>.
-You can report bugs and discuss features on the <a href="https://github.com/landau/is/issues">issues page</a>
+<p>The project is <a href="https://github.com/landau/predicate">hosted on GitHub</a>.
+You can report bugs and discuss features on the <a href="https://github.com/landau/predicate/issues">issues page</a>
 or send tweets to <a href="https://twitter.com/trevor_landau">@trevor_landau</a>.</p>
-<br><h5>Install/Downloads</h5><p>Node&nbsp;<a href="https://www.npmjs.org/package/is-predicate">npm install --save is-predicate</a></p><p>Development&nbsp;<a href="https://raw.githubusercontent.com/landau/is/master/dist/is.js">is.js</a></p><p>Production&nbsp;<a href="https://raw.githubusercontent.com/landau/is/master/dist/is.min.js">is.min.js</a></p></div><a name="predicates"></a><h1>Predicates</h1><hr><div class="panel panel-default"><a name="not"></a><div class="panel-heading"><h4>not<small><code>is.not</code></small></h4></div><div class="panel-body"><p>A complemented version of the <code>is</code> predicate functions.
+<br><h5>Install/Downloads</h5><p>Node&nbsp;<a href="https://www.npmjs.org/package/predicate">npm install --save is-predicate</a></p><p>Development&nbsp;<a href="https://raw.githubusercontent.com/landau/predicate/master/dist/predicate.js">predicate.js</a></p><p>Production&nbsp;<a href="https://raw.githubusercontent.com/landau/predicate/master/dist/predicate.min.js">predicate.min.js</a></p></div><a name="predicates"></a><h1>Predicates</h1><hr><div class="panel panel-default"><a name="not"></a><div class="panel-heading"><h4>not<small><code>predicate.not</code></small></h4></div><div class="panel-body"><p>A complemented version of the <code>predicate</code> predicate functions.
 All predicate functions are available in this namespace.</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.null(null) // true
-is.not.null(null) // false
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.null(null) // true
+predicate.not.null(null) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="is"></a><div class="panel-heading"><h4>is<small><code>is.is(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>Object.is(a, b)</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.is(window, window) // true
-is.is(1, 1) // true
-is.is(NaN, 0/0) // true
-is.is(0, -0) // false
-is.is([], []) // false
+</p></div></div><div class="panel panel-default"><a name="is"></a><div class="panel-heading"><h4>is<small><code>predicate.is(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>Object.is(a, b)</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.is(window, window) // true
+predicate.is(1, 1) // true
+predicate.is(NaN, 0/0) // true
+predicate.is(0, -0) // false
+predicate.is([], []) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="exists"></a><div class="panel-heading"><h4>exists<small><code>is.exists(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is not <code>null</code> or <code>undefined</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.exists(null) // false
-is.exists(false) // true
-is.exists(0) // true
-is.exists(&#39;javascript&#39;) // true
+</p></div></div><div class="panel panel-default"><a name="exists"></a><div class="panel-heading"><h4>exists<small><code>predicate.exists(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is not <code>null</code> or <code>undefined</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.exists(null) // false
+predicate.exists(false) // true
+predicate.exists(0) // true
+predicate.exists(&#39;javascript&#39;) // true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="truthy"></a><div class="panel-heading"><h4>truthy<small><code>is.truthy(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value <code>exists</code> and isn&#39;t <code>false</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.truthy(0) // true
-is.truthy([1, 2]) // true
-is.truthy(false) // false
-is.truthy(null) // false
+</p></div></div><div class="panel panel-default"><a name="truthy"></a><div class="panel-heading"><h4>truthy<small><code>predicate.truthy(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value <code>exists</code> and isn&#39;t <code>false</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.truthy(0) // true
+predicate.truthy([1, 2]) // true
+predicate.truthy(false) // false
+predicate.truthy(null) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="falsey"></a><div class="panel-heading"><h4>falsey<small><code>is.falsey(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>false</code> or <code>doesn&#39;t exist</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.falsey(0) // false
-is.falsey([1, 2]) // false
-is.falsey(false) // true
-is.falsey(null) // true
+</p></div></div><div class="panel panel-default"><a name="falsey"></a><div class="panel-heading"><h4>falsey<small><code>predicate.falsey(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>false</code> or <code>doesn&#39;t exist</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.falsey(0) // false
+predicate.falsey([1, 2]) // false
+predicate.falsey(false) // true
+predicate.falsey(null) // true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="null"></a><div class="panel-heading"><h4>null<small><code>is.null(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>null</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.null(null) // true
-is.null(false) // false
-is.null(undefined) // false
+</p></div></div><div class="panel panel-default"><a name="null"></a><div class="panel-heading"><h4>null<small><code>predicate.null(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>null</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.null(null) // true
+predicate.null(false) // false
+predicate.null(undefined) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="undef"></a><div class="panel-heading"><h4>undef<small><code>is.undef(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>undefined</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.undef(undefined) // true
-is.undef(null) // false
-is.undef(false) // false
+</p></div></div><div class="panel panel-default"><a name="undef"></a><div class="panel-heading"><h4>undef<small><code>predicate.undef(val)</code></small></h4></div><div class="panel-body"><p>Returns true if a value is <code>undefined</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.undef(undefined) // true
+predicate.undef(null) // false
+predicate.undef(false) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="equal"></a><div class="panel-heading"><h4>equal<small><code>is.equal(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a === b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.equal(1, 1) // true
-is.equal(&#39;a&#39;, &#39;a&#39;) // true
-is.equal(null, 1) // false
-is.equal([1, 2], [1, 2]) // false
+</p></div></div><div class="panel panel-default"><a name="equal"></a><div class="panel-heading"><h4>equal<small><code>predicate.equal(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a === b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.equal(1, 1) // true
+predicate.equal(&#39;a&#39;, &#39;a&#39;) // true
+predicate.equal(null, 1) // false
+predicate.equal([1, 2], [1, 2]) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="eq"></a><div class="panel-heading"><h4>eq<small><code>is.eq(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a == b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.eq(&#39;1&#39;, 1) // true
-is.eq(&#39;a&#39;, &#39;b&#39;) // false
+</p></div></div><div class="panel panel-default"><a name="eq"></a><div class="panel-heading"><h4>eq<small><code>predicate.eq(a, b)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>a == b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.eq(&#39;1&#39;, 1) // true
+predicate.eq(&#39;a&#39;, &#39;b&#39;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="less"></a><div class="panel-heading"><h4>less<small><code>is.less(a, b)</code></small></h4><small>alias <code>is.lt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt; b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.less(1, 5) // true
-is.less(5, 5) // false
-is.less(5, 1) // false
+</p></div></div><div class="panel panel-default"><a name="less"></a><div class="panel-heading"><h4>less<small><code>predicate.less(a, b)</code></small></h4><small>alias <code>predicate.lt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.less(1, 5) // true
+predicate.less(5, 5) // false
+predicate.less(5, 1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="lessEq"></a><div class="panel-heading"><h4>lessEq<small><code>is.lessEq(a, b)</code></small></h4><small>alias <code>is.ltEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt;= b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.lessEq(1, 5) // true
-is.lessEq(5, 5) // true
-is.lessEq(5, 1) // false
+</p></div></div><div class="panel panel-default"><a name="lessEq"></a><div class="panel-heading"><h4>lessEq<small><code>predicate.lessEq(a, b)</code></small></h4><small>alias <code>predicate.ltEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &lt;= b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.lessEq(1, 5) // true
+predicate.lessEq(5, 5) // true
+predicate.lessEq(5, 1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="greater"></a><div class="panel-heading"><h4>greater<small><code>is.greater(a, b)</code></small></h4><small>alias <code>is.gt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.greater(5, 1) // true
-is.greater(5, 5) // false
-is.greater(1, 5) // false
+</p></div></div><div class="panel panel-default"><a name="greater"></a><div class="panel-heading"><h4>greater<small><code>predicate.greater(a, b)</code></small></h4><small>alias <code>predicate.gt(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.greater(5, 1) // true
+predicate.greater(5, 5) // false
+predicate.greater(1, 5) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="greaterEq"></a><div class="panel-heading"><h4>greaterEq<small><code>is.greaterEq(a, b)</code></small></h4><small>alias <code>is.gtEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
-<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">is.greaterEq(5, 1) // true
-is.greaterEq(5, 5) // true
-is.greaterEq(1, 5) // false
+</p></div></div><div class="panel panel-default"><a name="greaterEq"></a><div class="panel-heading"><h4>greaterEq<small><code>predicate.greaterEq(a, b)</code></small></h4><small>alias <code>predicate.gtEq(a, b)</code></small></div><div class="panel-body"><p>Returns true if <code>a &gt; b</code></p>
+<small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">predicate.greaterEq(5, 1) // true
+predicate.greaterEq(5, 5) // true
+predicate.greaterEq(1, 5) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="object"></a><div class="panel-heading"><h4>object<small><code>is.object(val)</code></small></h4><small>alias <code>is.obj(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an object</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.object({}) // true
-is.object([]) // true
-is.object(1) // false
+</p></div></div><div class="panel panel-default"><a name="object"></a><div class="panel-heading"><h4>object<small><code>predicate.object(val)</code></small></h4><small>alias <code>predicate.obj(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.object({}) // true
+predicate.object([]) // true
+predicate.object(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="array"></a><div class="panel-heading"><h4>array<small><code>is.array(val)</code></small></h4><small>alias <code>is.arr(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an array</p>
+</p></div></div><div class="panel panel-default"><a name="array"></a><div class="panel-heading"><h4>array<small><code>predicate.array(val)</code></small></h4><small>alias <code>predicate.arr(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is an array</p>
 <p><em>Defaults to native</em> <code>Array.isArray</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.array([]) // true
-is.array({}) // false
-is.array(1) // false
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.array([]) // true
+predicate.array({}) // false
+predicate.array(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="date"></a><div class="panel-heading"><h4>date<small><code>is.date(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a date</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.date(new Date()) // true
-is.date({}) // false
-is.date(1) // false
+</p></div></div><div class="panel panel-default"><a name="date"></a><div class="panel-heading"><h4>date<small><code>predicate.date(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a date</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.date(new Date()) // true
+predicate.date({}) // false
+predicate.date(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="rgx"></a><div class="panel-heading"><h4>rgx<small><code>is.rgx(val)</code></small></h4><small>alias <code>is.RegExp(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is a rgx</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.rgx(/\d{1,4}/) // true
-is.rgx(new RegExp(&quot;Cosmos&quot;, &quot;gi&quot;)) // true
-is.rgx({}) // false
-is.rgx(&quot;Dark Star&quot;) // false
+</p></div></div><div class="panel panel-default"><a name="rgx"></a><div class="panel-heading"><h4>rgx<small><code>predicate.rgx(val)</code></small></h4><small>alias <code>predicate.RegExp(val)</code></small></div><div class="panel-body"><p>Returns true if <code>val</code> is a rgx</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.rgx(/\d{1,4}/) // true
+predicate.rgx(new RegExp(&quot;Cosmos&quot;, &quot;gi&quot;)) // true
+predicate.rgx({}) // false
+predicate.rgx(&quot;Dark Star&quot;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="finite"></a><div class="panel-heading"><h4>finite<small><code>is.finite(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code> and <code>isFinite</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.finite(1) // true
-is.finite(2e64) // true
-is.finite(NaN) // false
-is.finite(&#39;1&#39;) // false
-is.finite(Infinity) // false
+</p></div></div><div class="panel panel-default"><a name="finite"></a><div class="panel-heading"><h4>finite<small><code>predicate.finite(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code> and <code>isFinite</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.finite(1) // true
+predicate.finite(2e64) // true
+predicate.finite(NaN) // false
+predicate.finite(&#39;1&#39;) // false
+predicate.finite(Infinity) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="NaN"></a><div class="panel-heading"><h4>NaN<small><code>is.NaN(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is <code>NaN</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.NaN(NaN) // true
-is.NaN(&quot;titan&quot;) // false
-is.NaN(1) // false
+</p></div></div><div class="panel panel-default"><a name="NaN"></a><div class="panel-heading"><h4>NaN<small><code>predicate.NaN(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is <code>NaN</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.NaN(NaN) // true
+predicate.NaN(&quot;titan&quot;) // false
+predicate.NaN(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="arguments"></a><div class="panel-heading"><h4>arguments<small><code>is.arguments(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>arguments</code> object</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.arguments(arguments) // true
-is.arguments(&quot;titan&quot;) // false
+</p></div></div><div class="panel panel-default"><a name="arguments"></a><div class="panel-heading"><h4>arguments<small><code>predicate.arguments(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>arguments</code> object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.arguments(arguments) // true
+predicate.arguments(&quot;titan&quot;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="error"></a><div class="panel-heading"><h4>error<small><code>is.error(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>error</code> object</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.error(new Error()) // true
-is.error(&quot;titan&quot;) // false
+</p></div></div><div class="panel panel-default"><a name="error"></a><div class="panel-heading"><h4>error<small><code>predicate.error(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an <code>error</code> object</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.error(new Error()) // true
+predicate.error(&quot;titan&quot;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="fn"></a><div class="panel-heading"><h4>fn<small><code>is.fn(val)</code></small></h4><small>alias <code>is.function(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;function&#39;</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.fn(is.fn) // true
-is.fn(Math.max) // true
-is.fn({}) // false
-is.fn(&quot;Dark Star&quot;) // false
+</p></div></div><div class="panel panel-default"><a name="fn"></a><div class="panel-heading"><h4>fn<small><code>predicate.fn(val)</code></small></h4><small>alias <code>predicate.function(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;function&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.fn(predicate.fn) // true
+predicate.fn(Math.max) // true
+predicate.fn({}) // false
+predicate.fn(&quot;Dark Star&quot;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="num"></a><div class="panel-heading"><h4>num<small><code>is.num(val)</code></small></h4><small>alias <code>is.number(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;number&#39;</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.num(1) // true
-is.num(NaN) // false
-is.num({}) // false
-is.num(&quot;Dark Star&quot;) // false
+</p></div></div><div class="panel panel-default"><a name="num"></a><div class="panel-heading"><h4>num<small><code>predicate.num(val)</code></small></h4><small>alias <code>predicate.number(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;number&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.num(1) // true
+predicate.num(NaN) // false
+predicate.num({}) // false
+predicate.num(&quot;Dark Star&quot;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="str"></a><div class="panel-heading"><h4>str<small><code>is.str(val)</code></small></h4><small>alias <code>is.string(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;string&#39;</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.str(&quot;Dark Star&quot;) // true
-is.str(1) // false
-is.str({}) // false
+</p></div></div><div class="panel panel-default"><a name="str"></a><div class="panel-heading"><h4>str<small><code>predicate.str(val)</code></small></h4><small>alias <code>predicate.string(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;string&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.str(&quot;Dark Star&quot;) // true
+predicate.str(1) // false
+predicate.str({}) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="bool"></a><div class="panel-heading"><h4>bool<small><code>is.bool(val)</code></small></h4><small>alias <code>is.boolean(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;boolean&#39;</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.bool(true) // false
-is.bool(false) // false
-is.bool(&quot;Dark Star&quot;) // false
-is.bool(1) // false
+</p></div></div><div class="panel panel-default"><a name="bool"></a><div class="panel-heading"><h4>bool<small><code>predicate.bool(val)</code></small></h4><small>alias <code>predicate.boolean(val)</code></small></div><div class="panel-body"><p>Returns true if <code>typeof val === &#39;boolean&#39;</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.bool(true) // false
+predicate.bool(false) // false
+predicate.bool(&quot;Dark Star&quot;) // false
+predicate.bool(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="int"></a><div class="panel-heading"><h4>int<small><code>is.int(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an integer</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.int(1) // true
-is.int(1.5) // false
+</p></div></div><div class="panel panel-default"><a name="int"></a><div class="panel-heading"><h4>int<small><code>predicate.int(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is an integer</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.int(1) // true
+predicate.int(1.5) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="primitive"></a><div class="panel-heading"><h4>primitive<small><code>is.primitive(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a primitive value</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.primitive(1) // true
-is.primitive(&#39;a&#39;) // true
-is.primitive(null) // true
-is.primitive(NaN) // true
-is.primitive([]) // false
-is.primitive({}) // false
+</p></div></div><div class="panel panel-default"><a name="primitive"></a><div class="panel-heading"><h4>primitive<small><code>predicate.primitive(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a primitive value</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.primitive(1) // true
+predicate.primitive(&#39;a&#39;) // true
+predicate.primitive(null) // true
+predicate.primitive(NaN) // true
+predicate.primitive([]) // false
+predicate.primitive({}) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="pos"></a><div class="panel-heading"><h4>pos<small><code>is.pos(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &gt; 0</code> and is a <code>number</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.pos(1) // true
-is.pos(-2) // false
-is.pos(0) // false
+</p></div></div><div class="panel panel-default"><a name="pos"></a><div class="panel-heading"><h4>pos<small><code>predicate.pos(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &gt; 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.pos(1) // true
+predicate.pos(-2) // false
+predicate.pos(0) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="neg"></a><div class="panel-heading"><h4>neg<small><code>is.neg(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &lt; 0</code> and is a <code>number</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.neg(-2) // true
-is.neg(1) // false
-is.neg(0) // false
+</p></div></div><div class="panel panel-default"><a name="neg"></a><div class="panel-heading"><h4>neg<small><code>predicate.neg(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val &lt; 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.neg(-2) // true
+predicate.neg(1) // false
+predicate.neg(0) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="zero"></a><div class="panel-heading"><h4>zero<small><code>is.zero(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val === 0</code> and is a <code>number</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.zero(0) // true
-is.zero(-2) // false
-is.zero(1) // false
+</p></div></div><div class="panel panel-default"><a name="zero"></a><div class="panel-heading"><h4>zero<small><code>predicate.zero(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val === 0</code> and is a <code>number</code></p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.zero(0) // true
+predicate.zero(-2) // false
+predicate.zero(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="even"></a><div class="panel-heading"><h4>even<small><code>is.even(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2  is zero</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.even(2) // true
-is.even(0) // false
-is.even(1) // false
+</p></div></div><div class="panel panel-default"><a name="even"></a><div class="panel-heading"><h4>even<small><code>predicate.even(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2  is zero</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.even(2) // true
+predicate.even(0) // false
+predicate.even(1) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="odd"></a><div class="panel-heading"><h4>odd<small><code>is.odd(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2 is not zero</p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.odd(1) // true
-is.odd(2) // false
-is.odd(0) // false
+</p></div></div><div class="panel panel-default"><a name="odd"></a><div class="panel-heading"><h4>odd<small><code>predicate.odd(val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> is a <code>number</code>, not <code>zero</code>, and it&#39;s modulus of 2 is not zero</p>
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.odd(1) // true
+predicate.odd(2) // false
+predicate.odd(0) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="contains"></a><div class="panel-heading"><h4>contains<small><code>is.contains(arr, val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> exists in <code>arr</code></p>
+</p></div></div><div class="panel panel-default"><a name="contains"></a><div class="panel-heading"><h4>contains<small><code>predicate.contains(arr, val)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>val</code> exists in <code>arr</code></p>
 <small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">var arr = [1, 2, 3, 4];
-is.contains(arr, 2) // true
-is.contains(arr, -5) // false
+predicate.contains(arr, 2) // true
+predicate.contains(arr, -5) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="empty"></a><div class="panel-heading"><h4>empty<small><code>is.empty(o)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>o</code> is an object and has no owned props</p>
+</p></div></div><div class="panel panel-default"><a name="empty"></a><div class="panel-heading"><h4>empty<small><code>predicate.empty(o)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>o</code> is an object and has no owned props</p>
 <p>Returns true if <code>o</code> is an array or string of length zero</p>
 <p>Throws <code>TypeError</code> if <code>o</code> is not an <code>Array</code>, <code>Object</code>, or <code>String</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">is.empty([]) // true
-is.empty([&#39;a&#39;]) // false
-is.empty({}) // true
-is.empty({foo: &#39;bar&#39;}) // false
+<hr><p><small>Example</small><pre><code class="lang-js">predicate.empty([]) // true
+predicate.empty([&#39;a&#39;]) // false
+predicate.empty({}) // true
+predicate.empty({foo: &#39;bar&#39;}) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="has"></a><div class="panel-heading"><h4>has<small><code>is.has(o, key)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>string</code> <code>key</code> exists on <code>object</code> <code>o</code></p>
+</p></div></div><div class="panel panel-default"><a name="has"></a><div class="panel-heading"><h4>has<small><code>predicate.has(o, key)</code></small></h4></div><div class="panel-body"><p>Returns true if <code>string</code> <code>key</code> exists on <code>object</code> <code>o</code></p>
 <small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">var o = { planet: &#39;Earth&#39; };
-is.has(o, &#39;planet&#39;) // true
-is.has(o, &#39;moon&#39;) // false
+predicate.has(o, &#39;planet&#39;) // true
+predicate.has(o, &#39;moon&#39;) // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="instance"></a><div class="panel-heading"><h4>instance<small><code>is.instance(Cls, [inst])</code></small></h4></div><div class="panel-body"><p>Returns true if <code>inst instanceof Cls</code> is <code>true</code>.</p>
+</p></div></div><div class="panel panel-default"><a name="instance"></a><div class="panel-heading"><h4>instance<small><code>predicate.instance(Cls, [inst])</code></small></h4></div><div class="panel-body"><p>Returns true if <code>inst instanceof Cls</code> is <code>true</code>.</p>
 <small>curryable </small><hr><p><small>Example</small><pre><code class="lang-js">function Planet() {}
 var p = new Planet();
 
-var isPlanet = is.instance(Planet);
+var isPlanet = predicate.instance(Planet);
 isPlanet(p); // true
-is.instance(Planet, p); // true
+predicate.instance(Planet, p); // true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="ternary"></a><div class="panel-heading"><h4>ternary<small><code>is.ternary(pred, [a [b]])</code></small></h4></div><div class="panel-body"><p><strong>If a <code>pred</code> is given:</strong></p>
+</p></div></div><div class="panel panel-default"><a name="ternary"></a><div class="panel-heading"><h4>ternary<small><code>predicate.ternary(pred, [a [b]])</code></small></h4></div><div class="panel-body"><p><strong>If a <code>pred</code> is given:</strong></p>
 <p>Returns a <code>function(a, b)</code> that evaluates <code>pred(a, b)</code></p>
 <p><strong>If <code>pred</code> and <code>a</code> and is given:</strong></p>
 <p>Returns a <code>function(b)</code> that evaluates <code>pred(a, b)</code></p>
@@ -453,38 +453,38 @@ is.instance(Planet, p); // true
 <p>Returns the evaluation of <code>pred(a, b)</code></p>
 <p><strong>If <code>pred</code> is of type <code>boolean</code>, <code>a</code>, and <code>b</code> are given</strong></p>
 <p>Returns <code>bool</code> ? <code>a</code> : <code>b</code></p>
-<hr><p><small>Example</small><pre><code class="lang-js">var pred1 = is.ternary(is.less);
+<hr><p><small>Example</small><pre><code class="lang-js">var pred1 = predicate.ternary(predicate.less);
 pred1(1, 2); // 1
 
-var pred2 = is.ternary(is.less, 1);
+var pred2 = predicate.ternary(predicate.less, 1);
 pred2(2); // 1
 
-is.ternary(is.less, 1, 2); // 1
-is.ternary(1 &lt; 2, &#39;a&#39;, &#39;b&#39;); // &#39;a&#39;
+predicate.ternary(predicate.less, 1, 2); // 1
+predicate.ternary(1 &lt; 2, &#39;a&#39;, &#39;b&#39;); // &#39;a&#39;
 </code></pre>
-</p></div></div><a name="chaining"></a><h1>Chaining</h1><hr><div class="panel panel-default"><a name="every"></a><div class="panel-heading"><h4>every<small><code>is.every()</code></small></h4><small>alias <code>is.all()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
+</p></div></div><a name="chaining"></a><h1>Chaining</h1><hr><div class="panel panel-default"><a name="every"></a><div class="panel-heading"><h4>every<small><code>predicate.every()</code></small></h4><small>alias <code>predicate.all()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
 <p>Invoke <code>.val()</code> which returns <code>true</code> if all predicates evaluate
 to <code>true</code>.</p>
-<hr><p><small>Example</small><pre><code class="lang-js">var chain = is.every();
-chain = chain.less(1, 2).fn(is.exists);
+<hr><p><small>Example</small><pre><code class="lang-js">var chain = predicate.every();
+chain = chain.less(1, 2).fn(predicate.exists);
 chain.val(); // true
 chain.NaN(1).val(); // false
 
-is.every().exists(&#39;mars&#39;).str(&#39;asteroid&#39;).val(); //true
+predicate.every().exists(&#39;mars&#39;).str(&#39;asteroid&#39;).val(); //true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="some"></a><div class="panel-heading"><h4>some<small><code>is.some()</code></small></h4><small>alias <code>is.any()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
+</p></div></div><div class="panel panel-default"><a name="some"></a><div class="panel-heading"><h4>some<small><code>predicate.some()</code></small></h4><small>alias <code>predicate.any()</code></small></div><div class="panel-body"><p>Returns a chainable interface for lazily executing predicates.</p>
 <p>Invoke <code>.val()</code> which returns <code>true</code> if at least 1 predicate evaluate
 to <code>true</code>.</p>
-<hr><p><small>Example</small><pre><code class="lang-js">var chain = is.some();
-chain = chain.equal(1, 2).fn(is.exists);
+<hr><p><small>Example</small><pre><code class="lang-js">var chain = predicate.some();
+chain = chain.equal(1, 2).fn(predicate.exists);
 chain.val(); // true
 chain.NaN(1).val(); // true
 
-is.some().exists(null).str(&#39;asteroid&#39;).val(); // true
-is.some().exists(null).str(1).val(); // false
+predicate.some().exists(null).str(&#39;asteroid&#39;).val(); // true
+predicate.some().exists(null).str(1).val(); // false
 </code></pre>
-</p></div></div><a name="utils"></a><h1>Utils</h1><hr><div class="panel panel-default"><a name="curry"></a><div class="panel-heading"><h4>curry<small><code>is.curry(fn)</code></small></h4></div><div class="panel-body"><p>Returns a new function that curries a given <code>fn</code>.</p>
-<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.curry(function add(a, b) {
+</p></div></div><a name="utils"></a><h1>Utils</h1><hr><div class="panel panel-default"><a name="curry"></a><div class="panel-heading"><h4>curry<small><code>predicate.curry(fn)</code></small></h4></div><div class="panel-body"><p>Returns a new function that curries a given <code>fn</code>.</p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = predicate.curry(function add(a, b) {
   return a + b;
 });
 var fn2 = add(1);
@@ -493,20 +493,24 @@ fn2(2); // 3
 fn2(5); // 6
 fn(2, 2); // 4
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="partial"></a><div class="panel-heading"><h4>partial<small><code>is.partial(fn, ...)</code></small></h4></div><div class="panel-body"><p>Returns a partially applied function based on <code>fn</code>.</p>
-<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.partial(is.less, 1);
+</p></div></div><div class="panel panel-default"><a name="partial"></a><div class="panel-heading"><h4>partial<small><code>predicate.partial(fn, ...)</code></small></h4></div><div class="panel-body"><p>Returns a partially applied function based on <code>fn</code>.</p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = predicate.partial(predicate.less, 1);
 fn(2); // true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="complement"></a><div class="panel-heading"><h4>complement<small><code>is.complement(fn)</code></small></h4><small>alias<code>is.invert(fn)</code></small></div><div class="panel-body"><p>Returns a function a that receives the same args as <code>fn</code> and returns
+</p></div></div><div class="panel panel-default"><a name="complement"></a><div class="panel-heading"><h4>complement<small><code>predicate.complement(fn)</code></small></h4><small>alias<code>predicate.invert(fn)</code></small></div><div class="panel-body"><p>Returns a function a that receives the same args as <code>fn</code> and returns
 the opposite truth value.</p>
-<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = is.complement(is.fn);
-fn(is.fn); // false
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">var fn = predicate.complement(predicate.fn);
+fn(predicate.fn); // false
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="mod"></a><div class="panel-heading"><h4>mod<small><code>is.mod(a, b)</code></small></h4></div><div class="panel-body"><p>Returns the value of <code>a % b</code></p>
-<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">is.mod(6, 5); // 1
-is.mod(6, 6); // 0
+</p></div></div><div class="panel panel-default"><a name="mod"></a><div class="panel-heading"><h4>mod<small><code>predicate.mod(a, b)</code></small></h4></div><div class="panel-body"><p>Returns the value of <code>a % b</code></p>
+<small>Used internally</small><hr><p><small>Example</small><pre><code class="lang-js">predicate.mod(6, 5); // 1
+predicate.mod(6, 6); // 0
 </code></pre>
 </p></div></div><hr><a name="changelog"></a><div class="changelog"><h2 id="changelog">changelog</h2>
+<h4 id="0-10-2">0.10.2</h4>
+<ul>
+<li>Changed from is.js to predicate.js</li>
+</ul>
 <h4 id="0-10-0">0.10.0</h4>
 <ul>
 <li>Added <code>is.primitive</code> (<a href="https://twitter.com/tgriesser">@tgriesser</a>)</li>
@@ -597,7 +601,7 @@ is.mod(6, 6); // 0
 <ul>
 <li>Release</li>
 </ul>
-</div><div id="footer" class="well">Copyright &copy&nbsp <2013-2014></2013-2014>&nbsp;<a href="http://trevorlandau.net">Trevor &lambda;andau</a></div></div></div></div><script src="is.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script><script>$(document).ready(function() {
+</div><div id="footer" class="well">Copyright &copy&nbsp <2013-2014></2013-2014>&nbsp;<a href="http://trevorlandau.net">Trevor &lambda;andau</a></div></div></div></div><script src="predicate.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script><script>$(document).ready(function() {
   $('[data-toggle=offcanvas]').click(function() {
     $('.row-offcanvas').toggleClass('active');
   });
@@ -605,9 +609,11 @@ is.mod(6, 6); // 0
   $('.btn-toggle').click(function() {
     $(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
   });
-});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+});
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-36148349-8', 'landau.github.io');
+
+ga('create', 'UA-36148349-10', 'auto');
 ga('send', 'pageview');</script></div></body></html>
