@@ -1,6 +1,6 @@
 {
   "name": "predicate",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
     "pretest": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js ./test",
@@ -8,8 +8,8 @@
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
     "build-docs": "npm run docs && npm run changelog",
-    "build-dev": "cat ./docs/banner.txt > ./dist/is.js && browserify -s is index.js >> ./dist/is.js",
-    "build-prod": "cat ./docs/banner.txt > ./dist/is.min.js && uglifyjs ./dist/is.js >> ./dist/is.min.js",
+    "build-dev": "cat ./docs/banner.txt > ./dist/predicate.js && browserify -s predicate index.js >> ./dist/predicate.js",
+    "build-prod": "cat ./docs/banner.txt > ./dist/predicate.min.js && uglifyjs ./dist/predicate.js >> ./dist/predicate.min.js",
     "build": "npm run build-dev && npm run build-prod",
     "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
     "prepare": "npm ts && npm run build && npm run build-docs"
@@ -20,13 +20,13 @@
     "email": "landautrevor@gmail.com",
     "url": "http://trevorlandau.net"
   },
-  "homepage": "http://landau.github.io/is",
+  "homepage": "http://landau.github.io/predicate",
   "repository": {
     "type": "git",
-    "url": "http://github.com/landau/is"
+    "url": "http://github.com/landau/predicate"
   },
   "bugs": {
-    "url": "http://github.com/landau/is/issues"
+    "url": "http://github.com/landau/predicate/issues"
   },
   "keywords": [
     "functional",
@@ -39,7 +39,6 @@
     "compare",
     "curry",
     "partial",
-    "is",
     "testing",
     "test",
     "chain",
