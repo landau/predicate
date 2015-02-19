@@ -199,7 +199,7 @@ hr
     h4 lessEq
       small: code predicate.lessEq(a, b)
     small alias 
-      code predicate.ltEq(a, b)
+      code predicate.ltEq(a, b) predicate.le(a, b)
 
   .panel-body
     :markdown
@@ -241,7 +241,7 @@ hr
     h4 greaterEq
       small: code predicate.greaterEq(a, b)
     small alias 
-      code predicate.gtEq(a, b)
+      code predicate.gtEq(a, b) predicate.ge(a, b)
 
   .panel-body
     :markdown
@@ -322,7 +322,7 @@ hr
     h4 rgx
       small: code predicate.rgx(val)
     small alias 
-      code predicate.RegExp(val)
+      code predicate.RegExp(val) predicate.regexp(val) predicate.regex(val)
 
   .panel-body
     :markdown
@@ -358,10 +358,12 @@ hr
         predicate.finite(Infinity) // false
         ```
 .panel.panel-default
-  a(name='NaN')
+  a(name='nan')
   .panel-heading
-    h4 NaN
-      small: code predicate.NaN(val)
+    h4 nan
+      small: code predicate.nan(val)
+    small alias 
+      code predicate.NaN(val)
 
   .panel-body
     :markdown
@@ -371,9 +373,9 @@ hr
       small Example
       :markdown
         ```js
-        predicate.NaN(NaN) // true
-        predicate.NaN("titan") // false
-        predicate.NaN(1) // false
+        predicate.nan(nan) // true
+        predicate.nan("titan") // false
+        predicate.nan(1) // false
         ```
 .panel.panel-default
   a(name='arguments')
