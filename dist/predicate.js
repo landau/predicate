@@ -143,7 +143,7 @@ predicate.lt = predicate.less = curry(function (a, b) {
   return a < b;
 });
 
-predicate.le = predicate.lessEq = curry(function (a, b) {
+predicate.ltEq = predicate.le = predicate.lessEq = curry(function (a, b) {
   return predicate.equal(a, b) || predicate.less(a, b);
 });
 
@@ -151,7 +151,7 @@ predicate.gt = predicate.greater = curry(function (a, b) {
   return a > b;
 });
 
-predicate.ge = predicate.greaterEq = curry(function (a, b) {
+predicate.gtEq = predicate.ge = predicate.greaterEq = curry(function (a, b) {
   return predicate.equal(a, b) || predicate.greater(a, b);
 });
 
@@ -171,14 +171,14 @@ predicate.object = predicate.obj = function (val) {
 
 predicate.array = predicate.arr = Array.isArray || eqToStr('[object Array]');
 predicate.date = eqToStr('[object Date]');
-predicate.rgx = predicate.RegExp = eqToStr('[object RegExp]');
+predicate.regex = predicate.regexp = predicate.rgx = predicate.RegExp = eqToStr('[object RegExp]');
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite
 predicate.finite = Number.isFinite || function (val) {
   return predicate.number(val) && isFinite(val);
 };
 
-predicate.NaN = predicate.is(NaN);
+predicate.nan = predicate.NaN = predicate.is(NaN);
 
 predicate.instance = curry(function (Cls, inst) {
   return inst instanceof Cls;
