@@ -3,27 +3,27 @@
  * (c) 2014-2015 Trevor Landau <landautrevor@gmail.com> @trevor_landau
  * predicate.js may be freely distributed under the MIT license.
  */
-!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.predicate=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.predicate=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var utils = _dereq_('./lib/utils');
+var utils = require('./lib/utils');
 var predicate = {};
 predicate.VERSION = '0.10.2';
 
 [
   utils,
-  _dereq_('./lib/predicates'),
-  _dereq_('./lib/chain'),
-  _dereq_('./lib/other'),
+  require('./lib/predicates'),
+  require('./lib/chain'),
+  require('./lib/other'),
 ].reduce(utils.assign, predicate);
 
 module.exports = predicate;
 
-},{"./lib/chain":2,"./lib/other":3,"./lib/predicates":4,"./lib/utils":5}],2:[function(_dereq_,module,exports){
+},{"./lib/chain":2,"./lib/other":3,"./lib/predicates":4,"./lib/utils":5}],2:[function(require,module,exports){
 'use strict';
 
-var utils = _dereq_('./utils');
-var predicates = _dereq_('./predicates');
+var utils = require('./utils');
+var predicates = require('./predicates');
 var predicate = module.exports;
 
 // chaining mixin
@@ -78,11 +78,11 @@ predicate.any = predicate.some = function () {
   return new Some();
 };
 
-},{"./predicates":4,"./utils":5}],3:[function(_dereq_,module,exports){
+},{"./predicates":4,"./utils":5}],3:[function(require,module,exports){
 'use strict';
 
-var predicates = _dereq_('./predicates');
-var utils = _dereq_('./utils');
+var predicates = require('./predicates');
+var utils = require('./utils');
 var predicate = module.exports;
 
 predicate.ternary = function (pred, a, b) {
@@ -92,10 +92,10 @@ predicate.ternary = function (pred, a, b) {
   return predicate.ternary(pred(a, b), a, b);
 };
 
-},{"./predicates":4,"./utils":5}],4:[function(_dereq_,module,exports){
+},{"./predicates":4,"./utils":5}],4:[function(require,module,exports){
 'use strict';
 
-var utils = _dereq_('./utils');
+var utils = require('./utils');
 var predicate = module.exports;
 
 var curry = utils.curry;
@@ -143,7 +143,7 @@ predicate.lt = predicate.less = curry(function (a, b) {
   return a < b;
 });
 
-predicate.ltEq = predicate.lessEq = curry(function (a, b) {
+predicate.le = predicate.lessEq = curry(function (a, b) {
   return predicate.equal(a, b) || predicate.less(a, b);
 });
 
@@ -151,7 +151,7 @@ predicate.gt = predicate.greater = curry(function (a, b) {
   return a > b;
 });
 
-predicate.gtEq = predicate.greaterEq = curry(function (a, b) {
+predicate.ge = predicate.greaterEq = curry(function (a, b) {
   return predicate.equal(a, b) || predicate.greater(a, b);
 });
 
@@ -271,7 +271,7 @@ predicate.not = Object.keys(predicate).reduce(function (acc, fnName) {
   return acc;
 }, {});
 
-},{"./utils":5}],5:[function(_dereq_,module,exports){
+},{"./utils":5}],5:[function(require,module,exports){
 'use strict';
 var predicate = module.exports;
 var _slice = Array.prototype.slice;
@@ -333,6 +333,5 @@ predicate.assign = curry(function(a, b) {
 });
 
 
-},{}]},{},[1])
-(1)
+},{}]},{},[1])(1)
 });
