@@ -1,4 +1,10 @@
     ## changelog
+    #### 0.11.0
+    - Add alias `predicate.nan`
+    - Add alias `predicate.regex` and `predicate.regexp`
+    - Add alias `predicate.le`
+    - Add alias `predicate.ge`
+    
     #### 0.10.2
     - Changed from is.js to predicate.js
 
