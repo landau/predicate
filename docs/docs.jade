@@ -706,6 +706,25 @@ hr
         predicate.instance(Planet, p); // true
         ```
 .panel.panel-default
+  a(name='matches')
+  .panel-heading
+    h4 matches
+      small: code predicate.matches(rgx, val)
+
+  .panel-body
+    :markdown
+      Returns rgx.test(val)
+    small curryable 
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var rgx = /\d{3}/;
+        predicate.matches(rgx, 200) // true
+        predicate.matches(rgx, 50) // false
+        ```
+.panel.panel-default
   a(name='ternary')
   .panel-heading
     h4 ternary
