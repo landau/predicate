@@ -239,8 +239,12 @@ describe('predicate', function() {
     empty: {
       truthy: [{}, ''],
       falsey: [{ foo: 'bar' }, 'hi']
-    }
+    },
 
+    matches: {
+      truthy: [[/foo/, 'foo'], [/\d{3}/, 123]],
+      falsey: [[/foo/, 'bar'], [/\d{3}/, 13]]
+    }
   };
 
   _.each(tests, function(expectations, methodName) {
