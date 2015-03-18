@@ -1,6 +1,6 @@
 {
   "name": "predicate",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
     "pretest": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js ./test",
