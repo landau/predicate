@@ -1,4 +1,7 @@
     ## changelog
+    #### 0.12.0
+    - Add `predicate.matches`
+
     #### 0.11.0
     - Add alias `predicate.nan`
     - Add alias `predicate.regex` and `predicate.regexp`

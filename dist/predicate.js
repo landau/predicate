@@ -8,7 +8,7 @@
 
 var utils = require('./lib/utils');
 var predicate = {};
-predicate.VERSION = '0.10.2';
+predicate.VERSION = '0.12.0';
 
 [
   utils,
@@ -264,6 +264,10 @@ predicate.primitive = function (val) {
   return predicate.string(val) || predicate.num(val) || predicate.bool(val) ||
     predicate.null(val) || predicate.undef(val) || predicate.NaN(val);
 };
+
+predicate.matches = curry(function matches(rgx, val) {
+  return rgx.test(val);
+});
 
 // Assign inverse of each predicate
 predicate.not = Object.keys(predicate).reduce(function (acc, fnName) {

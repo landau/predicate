@@ -2,7 +2,7 @@
 
 var utils = require('./lib/utils');
 var predicate = {};
-predicate.VERSION = '0.10.2';
+predicate.VERSION = '0.12.0';
 
 [
   utils,
