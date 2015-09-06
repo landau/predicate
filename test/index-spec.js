@@ -318,16 +318,23 @@ describe('predicate', function() {
   describe('#contains', function() {
     var arr;
     arr = [1, 2, 3];
+    var arrStr = 'Joe';
 
     it('should return false if the value is not found', function() {
-      predicate.contains(arr, 5).should.be.false;
+      predicate.contains(5, arr).should.be.false;
+      predicate.contains('z', arrStr).should.be.false;
     });
 
     it('should return true if the value is found', function() {
-      predicate.contains(arr, 1).should.be.true;
-      predicate.contains(arr, 2).should.be.true;
-      predicate.contains(arr, 3).should.be.true;
-      predicate.contains([0, NaN], NaN).should.be.true;
+      predicate.contains(1, arr).should.be.true;
+      predicate.contains(2, arr).should.be.true;
+      predicate.contains(3, arr).should.be.true;
+
+      predicate.contains('J', arrStr).should.be.true;
+      predicate.contains('o', arrStr).should.be.true;
+      predicate.contains('e', arrStr).should.be.true;
+
+      predicate.contains(NaN, [0, NaN]).should.be.true;
     });
   });
 
@@ -407,9 +414,9 @@ describe('predicate', function() {
 
     it('should allow chaining', function() {
       predicate.every().equal(1, 1).str('5').val().should.be.ok;
-      predicate.every().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
-      predicate.every().str(1).contains([1, 2, 3], 1).val().should.be.false;
-      predicate.every().str('foo').contains([1, 2, 3], 5).val().should.be.false;
+      predicate.every().str('foo').contains(1, [1, 2, 3]).val().should.be.ok;
+      predicate.every().str(1).contains(1, [1, 2, 3]).val().should.be.false;
+      predicate.every().str('foo').contains(5, [1, 2, 3]).val().should.be.false;
     });
   });
 
@@ -424,10 +431,10 @@ describe('predicate', function() {
 
     it('should allow chaining', function() {
       predicate.some().equal(1, 1).str('5').val().should.be.ok;
-      predicate.some().str('foo').contains([1, 2, 3], 1).val().should.be.ok;
-      predicate.some().str(1).contains([1, 2, 3], 1).val().should.be.ok;
-      predicate.some().str('foo').contains([1, 2, 3], 5).val().should.be.ok;
-      predicate.some().num('foo').contains([1, 2, 3], 5).val().should.be.false;
+      predicate.some().str('foo').contains(1, [1, 2, 3]).val().should.be.ok;
+      predicate.some().str(1).contains(1, [1, 2, 3]).val().should.be.ok;
+      predicate.some().str('foo').contains(5, [1, 2, 3]).val().should.be.ok;
+      predicate.some().num('foo').contains(5, [1, 2, 3]).val().should.be.false;
     });
   });
 
