@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/landau/predicate.svg)](https://travis-ci.org/landau/predicate)
+[![Build Status](https://travis-ci.org/jadbox/predicate.svg)](https://travis-ci.org/landau/predicate)
 [![NPM](https://nodei.co/npm/predicate.png?downloads=true&stars=true)](https://nodei.co/npm/predicate/)
 # predicate.js - Adding clarity and conciseness to your JS through predicates
 
