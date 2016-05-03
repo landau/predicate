@@ -14,15 +14,12 @@ or
 
 download the file from the [dist](https://github.com/landau/predicate/dist/predicate.js) directory
 
-## Author
-[Trevor Landau](http://trevorlandau.net)
-
 ## Tests
 
-Simply run `npm ts`
+`npm ts`
 
-## Building
+## Build for the browser
 
-Simply run `npm run build`.
+`npm run build`.
 
 This will create a UMDified version of is in the `dist` directory along with a minified version.
