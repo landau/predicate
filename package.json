@@ -3,7 +3,7 @@
   "version": "0.12.0",
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
-    "pretest": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js ./test",
+    "pretest": "jshint index.js ./test",
     "test": "mocha -R spec --recursive test",
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
@@ -49,8 +49,7 @@
     "browserify": "^9.0.7",
     "jade": "^1.5.0",
     "jshint": "^2.6.3",
-    "jshint-stylish": "^1.0.1",
-    "lodash": "^3.6.0",
+    "lodash": "4.11.2",
     "marked": "^0.3.2",
     "mocha": "^2.2.1",
     "should": "^5.2.0",
