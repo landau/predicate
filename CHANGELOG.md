@@ -1,4 +1,7 @@
     ## changelog
+    #### 1.0.0
+    - Convert to nodejs 4.x es6 support
+
     #### 0.12.0
     - Add `predicate.matches`
 
@@ -7,7 +10,7 @@
     - Add alias `predicate.regex` and `predicate.regexp`
     - Add alias `predicate.le`
     - Add alias `predicate.ge`
-    
+
     #### 0.10.2
     - Changed from is.js to predicate.js
 

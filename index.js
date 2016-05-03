@@ -1,8 +1,8 @@
 'use strict';
 
-var utils = require('./lib/utils');
-var predicate = {};
-predicate.VERSION = '0.12.0';
+const utils = require('./lib/utils');
+const predicate = {};
+predicate.VERSION = '1.0.0';
 
 [
   utils,

@@ -1,5 +1,5 @@
 /**
  * @license predicate.js
- * (c) 2014-2015 Trevor Landau <landautrevor@gmail.com> @trevor_landau
+ * (c) 2014-2016 Trevor Landau <landautrevor@gmail.com> @trevor_landau
  * predicate.js may be freely distributed under the MIT license.
  */
