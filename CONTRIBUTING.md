@@ -1,6 +1,6 @@
 ## How to contribute to predicate.js
 
-* Before you open a ticket or send a pull request, [search](https://github.com/landau/is/issues) for previous discussions about the same feature or issue. Add to the earlier ticket if you find one.
+* Before you open a ticket or send a pull request, [search](https://github.com/landau/predicate/issues) for previous discussions about the same feature or issue. Add to the earlier ticket if you find one.
 
 * Before sending a pull request for a feature, be sure to add tests.
 
