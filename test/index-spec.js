@@ -395,6 +395,40 @@ describe('predicate', function() {
     });
   });
 
+  describe('#and', function() {
+    it('should return a function', function() {
+      var fn = predicate.and(predicate.str);
+      fn.should.be.a.function;
+    });
+
+    it('should return true if all predicates return true', function() {
+      var fn = predicate.and(predicate.str, predicate.equal('hi'), predicate.not.int);
+      fn('hi').should.be.true;
+    });
+
+    it('should return false if at least one predicate returns false', function() {
+      var fn = predicate.and(predicate.str, predicate.equal('hi'), predicate.not.int);
+      fn(1).should.be.false;
+    });
+  });
+
+  describe('#or', function() {
+    it('should return a function', function() {
+      var fn = predicate.or(predicate.str);
+      fn.should.be.a.function;
+    });
+
+    it('should return true if at least one predicate is true', function() {
+      var fn = predicate.or(predicate.not.equal('hi'), predicate.int, predicate.str);
+      fn('hi').should.be.true;
+    });
+
+    it('should return false if at least all predicates evaluate to false', function() {
+      var fn = predicate.or(predicate.equal('hi'), predicate.int, predicate.str);
+      fn([]).should.be.false;
+    });
+  });
+
   describe('#every', function() {
     it('should map to .all', function() {
       predicate.every.should.equal(predicate.all);

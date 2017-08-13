@@ -1,4 +1,7 @@
     ## changelog
+    #### Unreleased
+    - Add `or` and `add` functions (see docs for explanations)
+
     #### 1.0.0
     - Convert to nodejs 4.x es6 support
 
