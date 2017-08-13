@@ -40,8 +40,7 @@ testClasses.Bar = Bar = (function(_super) {
 
 })(testClasses.Foo);
 
-// Wow this is really shit lol.
-// FIXME ditch this shit
+// FIXME Wow this is really ugly lol.
 var addTest = function(fn, val, expected, shorthand) {
   if (Array.isArray(val) && val.length) {
 
