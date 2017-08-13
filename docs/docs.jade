@@ -28,7 +28,7 @@ hr
   .panel-body
     :markdown
       Returns true if `Object.is(a, b)`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -143,7 +143,7 @@ hr
   .panel-body
     :markdown
       Returns true if `a === b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -163,7 +163,7 @@ hr
   .panel-body
     :markdown
       Returns true if `a == b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -177,13 +177,13 @@ hr
   .panel-heading
     h4 less
       small: code predicate.less(a, b)
-    small alias 
+    small alias
       code predicate.lt(a, b)
 
   .panel-body
     :markdown
       Returns true if `a < b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -198,13 +198,13 @@ hr
   .panel-heading
     h4 lessEq
       small: code predicate.lessEq(a, b)
-    small alias 
+    small alias
       code predicate.ltEq(a, b) predicate.le(a, b)
 
   .panel-body
     :markdown
       Returns true if `a <= b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -219,13 +219,13 @@ hr
   .panel-heading
     h4 greater
       small: code predicate.greater(a, b)
-    small alias 
+    small alias
       code predicate.gt(a, b)
 
   .panel-body
     :markdown
       Returns true if `a > b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -240,13 +240,13 @@ hr
   .panel-heading
     h4 greaterEq
       small: code predicate.greaterEq(a, b)
-    small alias 
+    small alias
       code predicate.gtEq(a, b) predicate.ge(a, b)
 
   .panel-body
     :markdown
       Returns true if `a > b`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -261,7 +261,7 @@ hr
   .panel-heading
     h4 object
       small: code predicate.object(val)
-    small alias 
+    small alias
       code predicate.obj(val)
 
   .panel-body
@@ -281,7 +281,7 @@ hr
   .panel-heading
     h4 array
       small: code predicate.array(val)
-    small alias 
+    small alias
       code predicate.arr(val)
 
   .panel-body
@@ -321,7 +321,7 @@ hr
   .panel-heading
     h4 rgx
       small: code predicate.rgx(val)
-    small alias 
+    small alias
       code predicate.RegExp(val) predicate.regexp(val) predicate.regex(val)
 
   .panel-body
@@ -362,7 +362,7 @@ hr
   .panel-heading
     h4 nan
       small: code predicate.nan(val)
-    small alias 
+    small alias
       code predicate.NaN(val)
 
   .panel-body
@@ -416,7 +416,7 @@ hr
   .panel-heading
     h4 fn
       small: code predicate.fn(val)
-    small alias 
+    small alias
       code predicate.function(val)
 
   .panel-body
@@ -437,7 +437,7 @@ hr
   .panel-heading
     h4 num
       small: code predicate.num(val)
-    small alias 
+    small alias
       code predicate.number(val)
 
   .panel-body
@@ -458,7 +458,7 @@ hr
   .panel-heading
     h4 str
       small: code predicate.str(val)
-    small alias 
+    small alias
       code predicate.string(val)
 
   .panel-body
@@ -478,7 +478,7 @@ hr
   .panel-heading
     h4 bool
       small: code predicate.bool(val)
-    small alias 
+    small alias
       code predicate.boolean(val)
 
   .panel-body
@@ -631,7 +631,7 @@ hr
   .panel-body
     :markdown
       Returns true if `val` exists in `arr`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -673,7 +673,7 @@ hr
   .panel-body
     :markdown
       Returns true if `string` `key` exists on `object` `o`
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -692,7 +692,7 @@ hr
   .panel-body
     :markdown
       Returns true if `inst instanceof Cls` is `true`.
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -714,7 +714,7 @@ hr
   .panel-body
     :markdown
       Returns rgx.test(val)
-    small curryable 
+    small curryable
     hr
     p
       small Example
@@ -735,7 +735,7 @@ hr
       **If a `pred` is given:**
 
       Returns a `function(a, b)` that evaluates `pred(a, b)`
-      
+
       **If `pred` and `a` and is given:**
 
       Returns a `function(b)` that evaluates `pred(a, b)`
@@ -761,6 +761,42 @@ hr
         predicate.ternary(predicate.less, 1, 2); // 1
         predicate.ternary(1 < 2, 'a', 'b'); // 'a'
         ```
+.panel.panel-default
+  a(name='and')
+  .panel-heading
+    h4 and
+      small: code predicate.and([p1, p2, ...pN])
+
+  .panel-body
+    :markdown
+      Returns a `function` in which, when evaluated with `val`, returns `true`
+      if all given predicates return `true`.
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var fn = predicate.and(predicate.less(3), predicate.greater(1));
+        fn(2); // true
+        ```
+.panel.panel-default
+  a(name='or')
+  .panel-heading
+    h4 and
+      small: code predicate.or([p1, p2, ...pN])
+
+  .panel-body
+    :markdown
+      Returns a `function` in which, when evaluated with `val`, returns `true`
+      if at least __one__ of the given predicates return `true`.
+    hr
+    p
+      small Example
+      :markdown
+        ```js
+        var fn = predicate.or(predicate.less(3), predicate.greater(1));
+        fn(1); // true
+        ```
 a(name='chaining')
 h1 Chaining
 hr
@@ -769,7 +805,7 @@ hr
   .panel-heading
     h4 every
       small: code predicate.every()
-    small alias 
+    small alias
       code predicate.all()
 
   .panel-body
@@ -795,7 +831,7 @@ hr
   .panel-heading
     h4 some
       small: code predicate.some()
-    small alias 
+    small alias
       code predicate.any()
 
   .panel-body

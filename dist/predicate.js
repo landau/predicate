@@ -60,7 +60,7 @@ var Every = function (_Lazy) {
   function Every() {
     _classCallCheck(this, Every);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Every).call(this));
+    var _this = _possibleConstructorReturn(this, (Every.__proto__ || Object.getPrototypeOf(Every)).call(this));
 
     _this.method = 'every';
     return _this;
@@ -75,7 +75,7 @@ var Some = function (_Lazy2) {
   function Some() {
     _classCallCheck(this, Some);
 
-    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Some).call(this));
+    var _this2 = _possibleConstructorReturn(this, (Some.__proto__ || Object.getPrototypeOf(Some)).call(this));
 
     _this2.method = 'some';
     return _this2;
@@ -103,6 +103,7 @@ var Some = function (_Lazy2) {
 predicate.all = predicate.every = function () {
   return new Every();
 };
+
 predicate.any = predicate.some = function () {
   return new Some();
 };
@@ -121,10 +122,33 @@ predicate.ternary = function (pred, a, b) {
   return predicate.ternary(pred(a, b), a, b);
 };
 
+var _every = Array.prototype.every;
+var _some = Array.prototype.some;
+
+predicate.and = function () {
+  var predicates = arguments;
+
+  return function _and(val) {
+    return _every.call(predicates, function (p) {
+      return p(val);
+    });
+  };
+};
+
+predicate.or = function () {
+  var predicates = arguments;
+
+  return function _or(val) {
+    return _some.call(predicates, function (p) {
+      return p(val);
+    });
+  };
+};
+
 },{"./predicates":4,"./utils":5}],4:[function(require,module,exports){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var utils = require('./utils');
 var predicate = module.exports;
@@ -265,7 +289,7 @@ predicate.contains = curry(function (arr, val) {
   if (predicate.NaN(val)) {
     return arr.some(predicate.NaN);
   }
-  return !! ~arr.indexOf(val);
+  return !!~arr.indexOf(val);
 });
 
 var __has = Object.prototype.hasOwnProperty;
