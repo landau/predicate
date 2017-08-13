@@ -472,7 +472,7 @@ if all given predicates return <code>true</code>.</p>
 <hr><p><small>Example</small><pre><code class="lang-js">var fn = predicate.and(predicate.less(3), predicate.greater(1));
 fn(2); // true
 </code></pre>
-</p></div></div><div class="panel panel-default"><a name="or"></a><div class="panel-heading"><h4>and<small><code>predicate.or([p1, p2, ...pN])</code></small></h4></div><div class="panel-body"><p>Returns a <code>function</code> in which, when evaluated with <code>val</code>, returns <code>true</code>
+</p></div></div><div class="panel panel-default"><a name="or"></a><div class="panel-heading"><h4>or<small><code>predicate.or([p1, p2, ...pN])</code></small></h4></div><div class="panel-body"><p>Returns a <code>function</code> in which, when evaluated with <code>val</code>, returns <code>true</code>
 if at least <strong>one</strong> of the given predicates return <code>true</code>.</p>
 <hr><p><small>Example</small><pre><code class="lang-js">var fn = predicate.or(predicate.less(3), predicate.greater(1));
 fn(1); // true
@@ -522,6 +522,10 @@ fn(predicate.fn); // false
 predicate.mod(6, 6); // 0
 </code></pre>
 </p></div></div><hr><a name="changelog"></a><div class="changelog"><h2 id="changelog">changelog</h2>
+<h4 id="1-1-1">1.1.1</h4>
+<ul>
+<li>Improve perf around chaining methods</li>
+</ul>
 <h4 id="1-1-0">1.1.0</h4>
 <ul>
 <li>add <code>and</code> and <code>or</code> functions</li>

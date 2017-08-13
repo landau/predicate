@@ -1,6 +1,9 @@
     ## changelog
+    #### 1.1.1
+    - Improve perf around chaining methods
+
     #### 1.1.0
-    - Add `or` and `add` functions (see docs for explanations)
+    - add `and` and `or` functions
 
     #### 1.0.0
     - Convert to nodejs 4.x es6 support

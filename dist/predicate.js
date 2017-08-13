@@ -45,9 +45,9 @@ var Lazy = function () {
   }, {
     key: 'val',
     value: function val() {
-      return this.lazy.map(function (args) {
+      return this.lazy[this.method](function (args) {
         return args[0].apply(null, args[1]);
-      })[this.method](predicates.truthy);
+      });
     }
   }]);
 
