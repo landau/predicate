@@ -1,5 +1,5 @@
     ## changelog
-    #### Unreleased
+    #### 1.1.0
     - Add `or` and `add` functions (see docs for explanations)
 
     #### 1.0.0
