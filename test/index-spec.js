@@ -332,6 +332,17 @@ describe('predicate', function() {
     it('should have an alias contains', function() {
       predicate.includes.should.equal(predicate.contains);
     });
+
+    it('should find values in a string', function() {
+      predicate.includes('hippo', 'ppo').should.be.true;
+    });
+
+    it('should return false for string searches with values that are not strings', function() {
+      predicate.includes('hippo', 1).should.be.false;
+      predicate.includes('hippo', NaN).should.be.false;
+      predicate.includes('hippo', true).should.be.false;
+      predicate.includes('hippo', []).should.be.false;
+    });
   });
 
   describe('#empty', function() {
