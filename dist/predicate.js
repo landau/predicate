@@ -284,11 +284,13 @@ predicate.odd = function (val) {
   return predicate.num(val) && predicate.not.zero(val) && predicate.not.zero(utils.mod(val, 2));
 };
 
-predicate.contains = curry(function (arr, val) {
+predicate.contains = predicate.includes = curry(function (arr, val) {
   if (!predicate.array(arr)) throw new TypeError('Expected an array');
+
   if (predicate.NaN(val)) {
     return arr.some(predicate.NaN);
   }
+
   return !!~arr.indexOf(val);
 });
 

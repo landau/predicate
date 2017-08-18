@@ -1,4 +1,8 @@
     ## changelog
+
+    #### 1.1.2
+    - Add `includes` as alias to `contains`
+
     #### 1.1.1
     - Improve perf around chaining methods
 
