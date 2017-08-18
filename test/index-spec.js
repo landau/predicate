@@ -343,16 +343,6 @@ describe('predicate', function() {
       predicate.includes('hippo', true).should.be.false;
       predicate.includes('hippo', []).should.be.false;
     });
-
-    it.skip('should find values from a specified index', function() {
-      predicate.includes('hippo', 'i', 1).should.be.true;
-      predicate.includes('hippo', 'i', 2).should.be.false;
-      predicate.includes(arr, 2, 1).should.be.true;
-      predicate.includes(arr, 2, 2).should.be.false;
-
-      predicate.includes('hippo')('i', 1).should.be.true;
-      predicate.includes(arr)(2, 1).should.be.true;
-    });
   });
 
   describe('#empty', function() {
