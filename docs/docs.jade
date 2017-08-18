@@ -623,10 +623,12 @@ hr
         predicate.odd(0) // false
         ```
 .panel.panel-default
-  a(name='contains')
+  a(name='includes')
   .panel-heading
-    h4 contains
-      small: code predicate.contains(arr, val)
+    h4 includes
+      small: code predicate.includes(arr, val)
+    small alias
+      code predicate.contains(arr, val)
 
   .panel-body
     :markdown
@@ -638,8 +640,8 @@ hr
       :markdown
         ```js
         var arr = [1, 2, 3, 4];
-        predicate.contains(arr, 2) // true
-        predicate.contains(arr, -5) // false
+        predicate.includes(arr, 2) // true
+        predicate.includes(arr, -5) // false
         ```
 .panel.panel-default
   a(name='empty')
