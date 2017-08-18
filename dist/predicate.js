@@ -284,14 +284,20 @@ predicate.odd = function (val) {
   return predicate.num(val) && predicate.not.zero(val) && predicate.not.zero(utils.mod(val, 2));
 };
 
-predicate.contains = predicate.includes = curry(function (arr, val) {
-  if (!predicate.array(arr)) throw new TypeError('Expected an array');
-
-  if (predicate.NaN(val)) {
-    return arr.some(predicate.NaN);
+predicate.contains = predicate.includes = curry(function (arrOrString, val) {
+  if (!predicate.array(arrOrString) && !predicate.string(arrOrString)) {
+    throw new TypeError('Expected an array or string');
   }
 
-  return !!~arr.indexOf(val);
+  if (predicate.string(arrOrString) && !predicate.string(val)) {
+    return false;
+  }
+
+  if (predicate.NaN(val)) {
+    return arrOrString.some(predicate.NaN);
+  }
+
+  return !!~arrOrString.indexOf(val);
 });
 
 var __has = Object.prototype.hasOwnProperty;
@@ -364,7 +370,6 @@ predicate.partial = function (fn) {
 };
 
 predicate.complement = predicate.invert = function (pred) {
-  // TODO: es6ing this breaks!
   return function () {
     var ret = pred.apply(null, arguments);
     // Handle curried fns
@@ -378,7 +383,7 @@ predicate.mod = curry(function (a, b) {
 });
 
 // assign b's props to a
-predicate.assign = curry(function (a, b) {
+predicate.assign = curry(Object.assign || function (a, b) {
   // use crummy for/in for perf purposes
   for (var prop in b) {
     if (b.hasOwnProperty(prop)) {

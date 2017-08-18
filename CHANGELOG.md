@@ -1,5 +1,9 @@
     ## changelog
 
+    #### 1.2.0
+    - Add support for searching strings using `includes`
+    - Use native `Object.assign` when available
+
     #### 1.1.2
     - Add `includes` as alias to `contains`
 
