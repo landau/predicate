@@ -7,12 +7,12 @@
     "test": "mocha -R spec --recursive test",
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
-    "build-docs": "npm run docs && npm run changelog",
+    "build-docs": "npm run -s docs && npm run -s changelog",
     "build-dev": "cat ./docs/banner.txt > ./dist/predicate.js && browserify -t [babelify --presets es2015] -s predicate index.js >> ./dist/predicate.js",
     "build-prod": "cat ./docs/banner.txt > ./dist/predicate.min.js && uglifyjs ./dist/predicate.js >> ./dist/predicate.min.js",
-    "build": "npm run build-dev && npm run build-prod",
+    "build": "npm run -s build-dev && npm run -s build-prod",
     "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
-    "prepare": "npm ts && npm run build && npm run build-docs"
+    "prepare": "npm ts && npm run -s build && npm run -s build-docs"
   },
   "main": "index.js",
   "author": {

@@ -318,6 +318,15 @@ describe('predicate', function() {
     var arr;
     arr = [1, 2, 3];
 
+    it('should throw an error for non arrays or non string', function() {
+      try {
+        predicate.includes(1, 5);
+        throw new Error('test');
+      } catch (err) {
+        err.should.be.a.TypeError;
+      }
+    });
+
     it('should return false if the value is not found', function() {
       predicate.includes(arr, 5).should.be.false;
     });
@@ -327,6 +336,7 @@ describe('predicate', function() {
       predicate.includes(arr, 2).should.be.true;
       predicate.includes(arr, 3).should.be.true;
       predicate.includes([0, NaN], NaN).should.be.true;
+      predicate.includes(['foo', 'bar'], 'foo');
     });
 
     it('should have an alias contains', function() {
@@ -354,6 +364,22 @@ describe('predicate', function() {
       predicate.empty([1]).should.be.false;
     });
 
+    it('should return true for an empty string', function() {
+      predicate.empty('').should.be.true;
+    });
+
+    it('should return false for a non-empty string', function() {
+      predicate.empty('foo').should.be.false;
+    });
+
+    it('should return true for an empty object', function() {
+      predicate.empty({}).should.be.true;
+    });
+
+    it('should return false for a non-empty object', function() {
+      predicate.empty({ foo: 'bar' }).should.be.false;
+    });
+
     it('should throw for non str/arr/obj', function() {
       var err = null;
       try {
@@ -362,7 +388,6 @@ describe('predicate', function() {
       err.should.be.instanceOf(TypeError);
     });
   });
-
 
   describe('#has', function() {
     it('should return true if the key is found', function() {
@@ -376,7 +401,6 @@ describe('predicate', function() {
         foo: 3
       }, 'toString').should.be.false;
     });
-
   });
 
   describe('#ternary', function() {
@@ -425,6 +449,13 @@ describe('predicate', function() {
       var fn = predicate.and(predicate.str, predicate.equal('hi'), predicate.not.int);
       fn(1).should.be.false;
     });
+
+    it('should handle n arity functions', function() {
+      var fn = predicate.and(predicate.eq, predicate.equal);
+      fn(5, 5).should.be.true;
+      fn('a', 'a').should.be.true;
+      fn(6, 7).should.be.false;
+    });
   });
 
   describe('#or', function() {
@@ -441,6 +472,13 @@ describe('predicate', function() {
     it('should return false if at least all predicates evaluate to false', function() {
       var fn = predicate.or(predicate.equal('hi'), predicate.int, predicate.str);
       fn([]).should.be.false;
+    });
+
+    it('should handle n arity functions', function() {
+      var fn = predicate.or(predicate.equal, predicate.greater);
+      fn(5, 5).should.be.true;
+      fn(6, 5).should.be.true;
+      fn(6, 7).should.be.false;
     });
   });
 
