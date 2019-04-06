@@ -1,14 +1,19 @@
 'use strict';
 
 const utils = require('./lib/utils');
-const predicate = {};
-predicate.VERSION = '1.0.0';
+const predicates = require('./lib/predicates');
+const chain = require('./lib/chain');
+const others = require('./lib/other');
+const pkg = require('./package.json');
 
-[
+const predicate = Object.assign(
+  {
+    VERSION: pkg.version
+  },
   utils,
-  require('./lib/predicates'),
-  require('./lib/chain'),
-  require('./lib/other'),
-].reduce(utils.assign, predicate);
+  predicates,
+  chain,
+  others
+);
 
 module.exports = predicate;

@@ -3,8 +3,9 @@
   "version": "1.2.0",
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
-    "pretest": "jshint index.js ./lib ./test",
+    "lint": "eslint .",
     "test": "mocha -R spec --recursive test",
+    "posttest": "eslint .",
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
     "build-docs": "npm run -s docs && npm run -s changelog",
@@ -46,14 +47,21 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@landau/eslint-config": "1.0.2",
     "babel-preset-es2015": "6.24.1",
     "babelify": "7.3.0",
     "browserify": "13.0.0",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsdoc": "4.8.0",
+    "eslint-plugin-mocha": "5.3.0",
+    "eslint-plugin-prettier": "3.0.1",
     "jade": "1.11.0",
-    "jshint": "2.9.5",
     "lodash": "4.17.10",
     "marked": "0.4.0",
     "mocha": "5.2.0",
+    "prettier": "1.16.4",
     "should": "13.2.1",
     "uglify-js": "2.4.19"
   }

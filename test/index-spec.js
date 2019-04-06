@@ -1,91 +1,65 @@
-/* jshint expr: true */
 'use strict';
 
-// Some old coffeescript stuff that is still useful
-var Bar, Foo, addNotTest, addTest, falses, testClasses, truths, _,
-  __hasProp = {}.hasOwnProperty,
-  __extends = function(child, parent) {
-    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
-    function Ctor() { /*jshint validthis:true */
-      this.constructor = child;
-    }
-    Ctor.prototype = parent.prototype;
-    child.prototype = new Ctor();
-    child.__super__ = parent.prototype;
-    return child;
-  };
+/* eslint-disable func-names, no-unused-expressions */
 
-var _ = require('lodash');
-var predicate = require('../');
+const _ = require('lodash');
 require('should');
+const mocha = require('mocha');
+const predicate = require('../');
 
-testClasses = {
-  Foo: Foo = (function() {
-    function Foo() {}
+const describe = mocha.describe;
+const it = mocha.it;
+const before = mocha.before;
 
-    return Foo;
+class Foo {}
+class Bar extends Foo {}
 
-  })()
-};
-
-testClasses.Bar = Bar = (function(_super) {
-
-  /*jshint validthis:true */
-  function _Bar() {
-    return _Bar.__super__.constructor.apply(this, arguments);
-  }
-  __extends(_Bar, _super);
-
-  return _Bar;
-
-})(testClasses.Foo);
+const testClasses = { Foo, Bar };
 
 // FIXME Wow this is really ugly lol.
-var addTest = function(fn, val, expected, shorthand) {
+function addTest(fn, val, expected, shorthand) {
   if (Array.isArray(val) && val.length) {
-
-    it('should return `' + expected + '` for values `' + val + '`', function() {
-      (predicate[fn].apply(null, val)).should.be[expected];
+    it(`should return ${expected} for values ${val}`, function() {
+      predicate[fn].apply(null, val).should.be[expected];
     });
-
   } else {
-
-    it('should return `' + expected + '` for value `' + val + '`', function() {
-      (predicate[fn](val)).should.be[expected];
+    it(`should return ${expected} for value ${val}`, function() {
+      predicate[fn](val).should.be[expected];
     });
-
   }
 
   if (_.isString(shorthand)) {
-    it('should have a shorthand method `' + shorthand + '` for method `' + fn + '`', function() {
+    it(`should have a shorthand method ${shorthand} for method ${fn}`, function() {
       predicate[shorthand].should.equal(predicate[fn]);
     });
   }
-};
+}
 
-var addNotTest = function(fn, val, expected) {
+function addNotTest(fn, val, expected) {
   if (Array.isArray(val) && val.length) {
-    return it('should return `' + expected + '` for values `' + val + '`', function() {
-      return (predicate.not[fn].apply(null, val)).should.be[expected];
+    it(`should return ${expected} for values ${val}`, function() {
+      predicate.not[fn].apply(null, val).should.be[expected];
     });
   } else {
-    return it('should return `' + expected + '` for value `' + val + '`', function() {
-      return (predicate.not[fn](val)).should.be[expected];
+    it(`should return ${expected} for value ${val}`, function() {
+      predicate.not[fn](val).should.be[expected];
     });
   }
-};
+}
 
-truths = ['dog', 1, [], {}];
-
-falses = [null, void 0];
+const truths = ['dog', 1, [], {}];
+const falses = [null, undefined];
 
 describe('predicate', function() {
-  var tests;
-  tests = {
+  const tests = {
     is: {
-      truthy: [[undefined, undefined], [null, null],
-               [testClasses.Foo, testClasses.Foo],
-               [0, 0], [NaN, 0/0]],
+      truthy: [
+        [undefined, undefined],
+        [null, null],
+        [testClasses.Foo, testClasses.Foo],
+        [0, 0],
+        [NaN, 0 / 0]
+      ],
       falsey: [[0, -0], [0, false], [NaN, 0]]
     },
 
@@ -104,13 +78,13 @@ describe('predicate', function() {
       falsey: truths
     },
 
-    'null': {
+    null: {
       truthy: [null],
-      falsey: [void 0, 'dog', 1, []]
+      falsey: [undefined, 'dog', 1, []]
     },
 
     undef: {
-      truthy: [void 0],
+      truthy: [undefined],
       falsey: [null, '', 'dog', 1, []]
     },
 
@@ -144,7 +118,6 @@ describe('predicate', function() {
       falsey: [[0, 1]]
     },
     object: {
-
       truthy: [{}, [], new Date()],
       falsey: [null, 'a', 1]
     },
@@ -170,7 +143,7 @@ describe('predicate', function() {
       falsey: falses.concat([], 1, /\d/, '1', {})
     },
 
-    'function': {
+    function: {
       truthy: [function() {}],
       falsey: [{}, 'a', 1, new Date()],
       shorthand: 'fn'
@@ -223,10 +196,14 @@ describe('predicate', function() {
       falsey: [0, 4, 'foo']
     },
 
-    'instance': {
-      truthy: [[Object, {}], [Array, []],
-        [testClasses.Foo, new testClasses.Foo()], [testClasses.Foo, new testClasses.Bar()],
-        [testClasses.Bar, new testClasses.Bar()]],
+    instance: {
+      truthy: [
+        [Object, {}],
+        [Array, []],
+        [testClasses.Foo, new testClasses.Foo()],
+        [testClasses.Foo, new testClasses.Bar()],
+        [testClasses.Bar, new testClasses.Bar()]
+      ],
       falsey: [[Array, {}], [testClasses.Bar, new testClasses.Foo()]]
     },
 
@@ -247,66 +224,56 @@ describe('predicate', function() {
   };
 
   _.each(tests, function(expectations, methodName) {
-    return describe('normal tests', function() {
-      return describe('' + methodName, function() {
-        var shorthand = expectations.shorthand;
-        var truthy = expectations.truthy;
-        var falsey = expectations.falsey;
+    describe('normal tests', function() {
+      describe(methodName, function() {
+        const shorthand = expectations.shorthand;
+        const truthy = expectations.truthy;
+        const falsey = expectations.falsey;
 
-        _.each(truthy, function(val) {
-          addTest(methodName, val, true, shorthand);
-        });
-
-        _.each(falsey, function(val) {
-          addTest(methodName, val, false, shorthand);
-        });
+        _.each(truthy, val => addTest(methodName, val, true, shorthand));
+        _.each(falsey, val => addTest(methodName, val, false, shorthand));
       });
     });
   });
 
   _.each(tests, function(expectations, methodName) {
-    return describe('not tests', function() {
-      return describe('' + methodName, function() {
-        var shorthand = expectations.shorthand;
-        var truthy = expectations.truthy;
-        var falsey = expectations.falsey;
+    describe('not tests', function() {
+      describe(methodName, function() {
+        const shorthand = expectations.shorthand;
+        const truthy = expectations.truthy;
+        const falsey = expectations.falsey;
 
-        _.each(truthy, function(val) {
-          addNotTest(methodName, val, false, shorthand);
-        });
-
-        _.each(falsey, function(val) {
-          addNotTest(methodName, val, true, shorthand);
-        });
+        _.each(truthy, val => addNotTest(methodName, val, true, shorthand));
+        _.each(falsey, val => addNotTest(methodName, val, false, shorthand));
       });
     });
   });
 
   describe('#arguments', function() {
     it('should return true for arguments', function() {
-      var fn = function() {
-        return (predicate.arguments(arguments)).should.be.true;
-      };
+      function fn() {
+        return predicate.arguments(arguments).should.equal(true);
+      }
 
       fn();
     });
 
-    _.each(falses.concat(truths), function(val) {
-      addTest('arguments', val, false);
-    });
+    [].concat(falses, truths).forEach(val => addTest('arguments', val, false));
   });
 
   describe('#invert', function() {
+    let testFn;
+
     before(function() {
-      this.testFn = predicate.invert(predicate.fn);
+      testFn = predicate.invert(predicate.fn);
     });
 
     it('should return a function', function() {
-      this.testFn.should.be.instanceof(Function);
+      testFn.should.be.instanceof(Function);
     });
 
     it('should return an inverted value', function() {
-      this.testFn(predicate.equal).should.false;
+      testFn(predicate.equal).should.equal(false);
     });
 
     it('should alias complement', function() {
@@ -315,28 +282,22 @@ describe('predicate', function() {
   });
 
   describe('#includes', function() {
-    var arr;
-    arr = [1, 2, 3];
+    const arr = [1, 2, 3];
 
     it('should throw an error for non arrays or non string', function() {
-      try {
-        predicate.includes(1, 5);
-        throw new Error('test');
-      } catch (err) {
-        err.should.be.a.TypeError;
-      }
+      (() => predicate.includes(1, 5)).should.throw(TypeError);
     });
 
     it('should return false if the value is not found', function() {
-      predicate.includes(arr, 5).should.be.false;
+      predicate.includes(arr, 5).should.equal(false);
     });
 
     it('should return true if the value is found', function() {
-      predicate.includes(arr, 1).should.be.true;
-      predicate.includes(arr, 2).should.be.true;
-      predicate.includes(arr, 3).should.be.true;
-      predicate.includes([0, NaN], NaN).should.be.true;
-      predicate.includes(['foo', 'bar'], 'foo');
+      predicate.includes(arr, 1).should.equal(true);
+      predicate.includes(arr, 2).should.equal(true);
+      predicate.includes(arr, 3).should.equal(true);
+      predicate.includes([0, NaN], NaN).should.equal(true);
+      predicate.includes(['foo', 'bar'], 'foo').should.equal(true);
     });
 
     it('should have an alias contains', function() {
@@ -344,62 +305,74 @@ describe('predicate', function() {
     });
 
     it('should find values in a string', function() {
-      predicate.includes('hippo', 'ppo').should.be.true;
+      predicate.includes('hippo', 'ppo').should.equal(true);
     });
 
     it('should return false for string searches with values that are not strings', function() {
-      predicate.includes('hippo', 1).should.be.false;
-      predicate.includes('hippo', NaN).should.be.false;
-      predicate.includes('hippo', true).should.be.false;
-      predicate.includes('hippo', []).should.be.false;
+      predicate.includes('hippo', 1).should.equal(false);
+      predicate.includes('hippo', NaN).should.equal(false);
+      predicate.includes('hippo', true).should.equal(false);
+      predicate.includes('hippo', []).should.equal(false);
     });
   });
 
   describe('#empty', function() {
     it('should return true for an empty array', function() {
-      predicate.empty([]).should.be.true;
+      predicate.empty([]).should.equal(true);
     });
 
     it('should return false for a non-empty array', function() {
-      predicate.empty([1]).should.be.false;
+      predicate.empty([1]).should.equal(false);
     });
 
     it('should return true for an empty string', function() {
-      predicate.empty('').should.be.true;
+      predicate.empty('').should.equal(true);
     });
 
     it('should return false for a non-empty string', function() {
-      predicate.empty('foo').should.be.false;
+      predicate.empty('foo').should.equal(false);
     });
 
     it('should return true for an empty object', function() {
-      predicate.empty({}).should.be.true;
+      predicate.empty({}).should.equal(true);
     });
 
     it('should return false for a non-empty object', function() {
-      predicate.empty({ foo: 'bar' }).should.be.false;
+      predicate.empty({ foo: 'bar' }).should.equal(false);
     });
 
     it('should throw for non str/arr/obj', function() {
-      var err = null;
+      let err = null;
       try {
         predicate.empty(true);
-      } catch(e) { err = e; }
+      } catch (e) {
+        err = e;
+      }
       err.should.be.instanceOf(TypeError);
     });
   });
 
   describe('#has', function() {
     it('should return true if the key is found', function() {
-      predicate.has({
-        foo: 3
-      }, 'foo').should.be.true;
+      predicate
+        .has(
+          {
+            foo: 3
+          },
+          'foo'
+        )
+        .should.equal(true);
     });
 
     it('should return false if the key is not on on the obj', function() {
-      predicate.has({
-        foo: 3
-      }, 'toString').should.be.false;
+      predicate
+        .has(
+          {
+            foo: 3
+          },
+          'toString'
+        )
+        .should.equal(false);
     });
   });
 
@@ -421,64 +394,80 @@ describe('predicate', function() {
     });
 
     it('should return a function for a pred given', function() {
-      var fn = predicate.ternary(predicate.less);
-      fn.should.be.a.function;
+      const fn = predicate.ternary(predicate.less);
+      (typeof fn).should.equal('function');
       fn(1, 2).should.equal(1);
       fn(2, 1).should.equal(1);
     });
 
     it('should return a function for a pred and arg given', function() {
-      var fn = predicate.ternary(predicate.less, 1);
-      fn.should.be.a.function;
+      const fn = predicate.ternary(predicate.less, 1);
+      (typeof fn).should.equal('function');
       fn(2).should.equal(1);
     });
   });
 
   describe('#and', function() {
     it('should return a function', function() {
-      var fn = predicate.and(predicate.str);
-      fn.should.be.a.function;
+      const fn = predicate.and(predicate.str);
+      (typeof fn).should.equal('function');
     });
 
     it('should return true if all predicates return true', function() {
-      var fn = predicate.and(predicate.str, predicate.equal('hi'), predicate.not.int);
-      fn('hi').should.be.true;
+      const fn = predicate.and(
+        predicate.str,
+        predicate.equal('hi'),
+        predicate.not.int
+      );
+      fn('hi').should.equal(true);
     });
 
     it('should return false if at least one predicate returns false', function() {
-      var fn = predicate.and(predicate.str, predicate.equal('hi'), predicate.not.int);
-      fn(1).should.be.false;
+      const fn = predicate.and(
+        predicate.str,
+        predicate.equal('hi'),
+        predicate.not.int
+      );
+      fn(1).should.equal(false);
     });
 
     it('should handle n arity functions', function() {
-      var fn = predicate.and(predicate.eq, predicate.equal);
-      fn(5, 5).should.be.true;
-      fn('a', 'a').should.be.true;
-      fn(6, 7).should.be.false;
+      const fn = predicate.and(predicate.eq, predicate.equal);
+      fn(5, 5).should.equal(true);
+      fn('a', 'a').should.equal(true);
+      fn(6, 7).should.equal(false);
     });
   });
 
   describe('#or', function() {
     it('should return a function', function() {
-      var fn = predicate.or(predicate.str);
-      fn.should.be.a.function;
+      const fn = predicate.or(predicate.str);
+      (typeof fn).should.equal('function');
     });
 
     it('should return true if at least one predicate is true', function() {
-      var fn = predicate.or(predicate.not.equal('hi'), predicate.int, predicate.str);
-      fn('hi').should.be.true;
+      const fn = predicate.or(
+        predicate.not.equal('hi'),
+        predicate.int,
+        predicate.str
+      );
+      fn('hi').should.equal(true);
     });
 
     it('should return false if at least all predicates evaluate to false', function() {
-      var fn = predicate.or(predicate.equal('hi'), predicate.int, predicate.str);
-      fn([]).should.be.false;
+      const fn = predicate.or(
+        predicate.equal('hi'),
+        predicate.int,
+        predicate.str
+      );
+      fn([]).should.equal(false);
     });
 
     it('should handle n arity functions', function() {
-      var fn = predicate.or(predicate.equal, predicate.greater);
-      fn(5, 5).should.be.true;
-      fn(6, 5).should.be.true;
-      fn(6, 7).should.be.false;
+      const fn = predicate.or(predicate.equal, predicate.greater);
+      fn(5, 5).should.equal(true);
+      fn(6, 5).should.equal(true);
+      fn(6, 7).should.equal(false);
     });
   });
 
@@ -492,10 +481,28 @@ describe('predicate', function() {
     });
 
     it('should allow chaining', function() {
-      predicate.every().equal(1, 1).str('5').val().should.be.ok;
-      predicate.every().str('foo').includes([1, 2, 3], 1).val().should.be.ok;
-      predicate.every().str(1).includes([1, 2, 3], 1).val().should.be.false;
-      predicate.every().str('foo').includes([1, 2, 3], 5).val().should.be.false;
+      predicate
+        .every()
+        .equal(1, 1)
+        .str('5')
+        .val().should.be.ok;
+      predicate
+        .every()
+        .str('foo')
+        .includes([1, 2, 3], 1)
+        .val().should.be.ok;
+      predicate
+        .every()
+        .str(1)
+        .includes([1, 2, 3], 1)
+        .val()
+        .should.equal(false);
+      predicate
+        .every()
+        .str('foo')
+        .includes([1, 2, 3], 5)
+        .val()
+        .should.equal(false);
     });
   });
 
@@ -509,30 +516,58 @@ describe('predicate', function() {
     });
 
     it('should allow chaining', function() {
-      predicate.some().equal(1, 1).str('5').val().should.be.ok;
-      predicate.some().str('foo').includes([1, 2, 3], 1).val().should.be.ok;
-      predicate.some().str(1).includes([1, 2, 3], 1).val().should.be.ok;
-      predicate.some().str('foo').includes([1, 2, 3], 5).val().should.be.ok;
-      predicate.some().num('foo').includes([1, 2, 3], 5).val().should.be.false;
+      predicate
+        .some()
+        .equal(1, 1)
+        .str('5')
+        .val().should.be.ok;
+      predicate
+        .some()
+        .str('foo')
+        .includes([1, 2, 3], 1)
+        .val().should.be.ok;
+      predicate
+        .some()
+        .str(1)
+        .includes([1, 2, 3], 1)
+        .val().should.be.ok;
+      predicate
+        .some()
+        .str('foo')
+        .includes([1, 2, 3], 5)
+        .val().should.be.ok;
+      predicate
+        .some()
+        .num('foo')
+        .includes([1, 2, 3], 5)
+        .val()
+        .should.equal(false);
     });
   });
 
   describe('#Lazy', function() {
     it('should call `val` when valueOf is called', function() {
-      +(predicate.some().equal(1, 1).str('5')).should.be.ok;
-      !!(predicate.some().equal(1, 1).str('5')).should.be.ok;
+      (+predicate
+        .some()
+        .equal(1, 1)
+        .str('5')).should.equal(1);
+
+      (!!predicate
+        .some()
+        .equal(1, 1)
+        .str('5')).should.equal(true);
     });
   });
 
   describe('#partial', function() {
-    var fn = null;
+    let fn = null;
 
     before(function() {
       fn = predicate.partial(predicate.less, 1);
     });
 
     it('should return a fn', function() {
-      fn.should.be.a.function;
+      (typeof fn).should.equal('function');
     });
 
     it('should exec the fn as expected', function() {
@@ -541,48 +576,40 @@ describe('predicate', function() {
   });
 
   describe('#curry', function() {
-    before(function() {
-      this.add = function(a, b) {
-        return a + b;
-      };
+    function add(a, b) {
+      return a + b;
+    }
 
-      this.fn = predicate.curry(this.add);
-    });
+    const fn = predicate.curry(add);
 
     it('should return an fn', function() {
-      this.fn.should.be.a.function;
+      (typeof fn).should.equal('function');
     });
 
     it('should source the original function', function() {
-      this.fn.src.should.equal(this.add);
+      fn.src.should.equal(add);
     });
 
     it('should throw a TypeError if no args are provided', function() {
-      var err = null;
-      try {
-        this.fn();
-      } catch(e) {
-        err = e;
-      }
-      err.should.be.instanceof(TypeError);
+      (() => fn()).should.throw(TypeError);
     });
 
     it('should return a new curried fn for arity 1', function() {
-      var fn = this.fn(1);
-      fn.should.be.a.function;
-      fn.src.should.equal(this.add);
-      fn(2).should.equal(3);
+      const curried = fn(1);
+      (typeof curried).should.equal('function');
+      curried.src.should.equal(add);
+      curried(2).should.equal(3);
     });
 
     it('should execute an arity 2 fn', function() {
-      this.fn(1, 2).should.equal(3);
+      fn(1, 2).should.equal(3);
     });
 
     it('should curry with predicate.not', function() {
-      var fn = predicate.not.equal(1);
-      fn.should.be.a.function;
-      fn(1).should.be.false;
-      fn(2).should.be.true;
+      const curried = predicate.not.equal(1);
+      (typeof curried).should.equal('function');
+      curried(1).should.equal(false);
+      curried(2).should.equal(true);
     });
   });
 
@@ -595,9 +622,9 @@ describe('predicate', function() {
 
   describe('#assign', function() {
     it('should copy values to a new object', function() {
-      var x = { foo: 'bar' };
-      var y = { bar: 'foo' };
-      var z = predicate.assign(x, y);
+      const x = { foo: 'bar' };
+      const y = { bar: 'foo' };
+      const z = predicate.assign(x, y);
       z.foo.should.equal('bar');
       z.bar.should.equal('foo');
     });
