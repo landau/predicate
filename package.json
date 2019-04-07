@@ -3,17 +3,14 @@
   "version": "1.2.0",
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run -s clean && tsc",
+    "watch": "tsc --watch",
     "lint": "eslint .",
     "test": "nyc -s mocha -R dot --recursive test",
     "posttest": "npm run -s view-cov && npm run -s check-cov && eslint .",
-    "docs": "jade ./docs/index.jade --out ./docs",
-    "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
-    "build-docs": "npm run -s docs && npm run -s changelog",
-    "build-dev": "cat ./docs/banner.txt > ./dist/predicate.js && browserify -t [babelify --presets es2015] -s predicate index.js >> ./dist/predicate.js",
-    "build-prod": "cat ./docs/banner.txt > ./dist/predicate.min.js && uglifyjs ./dist/predicate.js >> ./dist/predicate.min.js",
-    "build": "npm run -s build-dev && npm run -s build-prod",
-    "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
-    "prepare": "npm ts && npm run -s build && npm run -s build-docs",
+    "prepublishOnly": "npm run -s clean && tsc",
+    "docs": "",
     "check-cov": "nyc check-coverage --lines 100 --functions 100 --branches 100",
     "html-cov": "nyc report --reporter=html",
     "view-cov": "nyc report",
@@ -50,6 +47,24 @@
     "chaining"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "files": [
+    "./dist/**/*"
+  ],
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
+  },
   "devDependencies": {
     "@landau/eslint-config": "1.0.2",
     "eslint": "5.16.0",
@@ -58,9 +73,7 @@
     "eslint-plugin-jsdoc": "4.8.0",
     "eslint-plugin-mocha": "5.3.0",
     "eslint-plugin-prettier": "3.0.1",
-    "jade": "1.11.0",
     "lodash": "4.17.10",
-    "marked": "0.4.0",
     "mocha": "5.2.0",
     "nyc": "13.3.0",
     "prettier": "1.16.4",
