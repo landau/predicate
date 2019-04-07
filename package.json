@@ -4,8 +4,8 @@
   "description": "A set of predicate functions to improve your value testing and comparisons.",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha -R spec --recursive test",
-    "posttest": "eslint .",
+    "test": "nyc -s mocha -R dot --recursive test",
+    "posttest": "npm run -s view-cov && npm run -s check-cov && eslint .",
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
     "build-docs": "npm run -s docs && npm run -s changelog",
@@ -13,7 +13,11 @@
     "build-prod": "cat ./docs/banner.txt > ./dist/predicate.min.js && uglifyjs ./dist/predicate.js >> ./dist/predicate.min.js",
     "build": "npm run -s build-dev && npm run -s build-prod",
     "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
-    "prepare": "npm ts && npm run -s build && npm run -s build-docs"
+    "prepare": "npm ts && npm run -s build && npm run -s build-docs",
+    "check-cov": "nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "html-cov": "nyc report --reporter=html",
+    "view-cov": "nyc report",
+    "browse-cov": "npm run-s html-cov && open coverage/index.html"
   },
   "main": "index.js",
   "author": {
@@ -61,6 +65,7 @@
     "lodash": "4.17.10",
     "marked": "0.4.0",
     "mocha": "5.2.0",
+    "nyc": "13.3.0",
     "prettier": "1.16.4",
     "should": "13.2.1",
     "uglify-js": "2.4.19"

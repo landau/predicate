@@ -337,26 +337,7 @@ hr
         predicate.rgx({}) // false
         predicate.rgx("Dark Star") // false
         ```
-.panel.panel-default
-  a(name='finite')
-  .panel-heading
-    h4 finite
-      small: code predicate.finite(val)
 
-  .panel-body
-    :markdown
-      Returns true if `val` is a `number` and `isFinite`
-    hr
-    p
-      small Example
-      :markdown
-        ```js
-        predicate.finite(1) // true
-        predicate.finite(2e64) // true
-        predicate.finite(NaN) // false
-        predicate.finite('1') // false
-        predicate.finite(Infinity) // false
-        ```
 .panel.panel-default
   a(name='nan')
   .panel-heading

@@ -161,11 +161,6 @@ describe('predicate', function() {
       shorthand: 'str'
     },
 
-    finite: {
-      truthy: [1, 2e64],
-      falsey: [NaN, -Infinity, Infinity, '1', new Date()]
-    },
-
     int: {
       truthy: [1, 2e64, -5, 0],
       falsey: [1.2, -Infinity, Infinity, '1', new Date()]
@@ -214,7 +209,7 @@ describe('predicate', function() {
 
     empty: {
       truthy: [{}, ''],
-      falsey: [{ foo: 'bar' }, 'hi']
+      falsey: [{ foo: 'bar' }, 'hi', undefined]
     },
 
     matches: {
@@ -588,6 +583,10 @@ describe('predicate', function() {
 
     it('should source the original function', function() {
       fn.src.should.equal(add);
+    });
+
+    it('should display string version of curried function', function() {
+      fn.toString().should.equal(add.toString());
     });
 
     it('should throw a TypeError if no args are provided', function() {
