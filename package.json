@@ -63,7 +63,7 @@
     "eslint-plugin-mocha": "5.3.0",
     "eslint-plugin-prettier": "3.1.0",
     "jade": "1.11.0",
-    "lodash": "4.17.14",
+    "lodash": "4.17.15",
     "marked": "0.7.0",
     "mocha": "6.2.0",
     "nyc": "13.3.0",
