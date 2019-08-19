@@ -11,32 +11,31 @@
   "timezone": "America/New_York",
   "packageRules": [
     {
-      "groupName": "Major dev deps",
       "packagePatterns": ["*"],
       "depTypeList": ["devDependencies"],
       "updateTypes": ["major"],
       "labels": ["UPDATE-MAJOR-DEV"]
     },
     {
-      "groupName": "Non-major dev deps",
       "packagePatterns": ["*"],
       "depTypeList": ["devDependencies"],
       "updateTypes": ["minor", "patch"],
       "labels": ["UPDATE-NON-MAJOR-DEV"]
     },
     {
-      "groupName": "Major deps",
       "packagePatterns": ["*"],
       "depTypeList": ["dependencies"],
       "updateTypes": ["major"],
-      "labels": ["UPDATE-MAJOR"]
+      "labels": ["UPDATE-MAJOR"],
+      "semanticCommits": true
     },
     {
-      "groupName": "Non-major deps",
       "packagePatterns": ["*"],
       "depTypeList": ["dependencies"],
       "updateTypes": ["minor", "patch"],
-      "labels": ["UPDATE-NON-MAJOR"]
+      "labels": ["UPDATE-NON-MAJOR"],
+      "semanticCommits": true
     }
-  ]
+  ],
+  "schedule": ["after 7pm on Thursday", "every weekend"]
 }
