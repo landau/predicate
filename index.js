@@ -6,14 +6,12 @@ const chain = require('./lib/chain');
 const others = require('./lib/other');
 const pkg = require('./package.json');
 
-const predicate = Object.assign(
-  {
-    VERSION: pkg.version
-  },
-  utils,
-  predicates,
-  chain,
-  others
-);
+const predicate = {
+  VERSION: pkg.version,
+  ...utils,
+  ...predicates,
+  ...chain,
+  ...others
+};
 
 module.exports = predicate;
