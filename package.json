@@ -9,11 +9,8 @@
     "docs": "jade ./docs/index.jade --out ./docs",
     "changelog": "tail -n +4 ./docs/changelog.jade > CHANGELOG.md",
     "build-docs": "npm run -s docs && npm run -s changelog",
-    "build-dev": "cat ./docs/banner.txt > ./dist/predicate.js && browserify -t [babelify --presets es2015] -s predicate index.js >> ./dist/predicate.js",
-    "build-prod": "cat ./docs/banner.txt > ./dist/predicate.min.js && uglifyjs ./dist/predicate.js >> ./dist/predicate.min.js",
-    "build": "npm run -s build-dev && npm run -s build-prod",
-    "clean": "rm ./dist/* ./docs/index.html CHANGELOG.md",
-    "prepare": "npm ts && npm run -s build && npm run -s build-docs",
+    "clean": "rm ./docs/index.html CHANGELOG.md",
+    "prepare": "npm ts && npm run -s build-docs",
     "check-cov": "nyc check-coverage --lines 100 --functions 100 --branches 100",
     "html-cov": "nyc report --reporter=html",
     "view-cov": "nyc report",
@@ -52,10 +49,6 @@
   "license": "MIT",
   "devDependencies": {
     "@landau/eslint-config": "3.0.1",
-    "babel-core": "6.26.3",
-    "babel-preset-es2015": "6.24.1",
-    "babelify": "8.0.0",
-    "browserify": "16.5.0",
     "eslint": "6.3.0",
     "eslint-config-prettier": "6.2.0",
     "eslint-plugin-import": "2.18.2",
@@ -68,8 +61,7 @@
     "mocha": "6.2.0",
     "nyc": "14.1.1",
     "prettier": "1.18.2",
-    "should": "13.2.3",
-    "uglify-js": "3.6.0"
+    "should": "13.2.3"
   },
   "dependencies": {}
 }

@@ -1,5 +1,7 @@
     ## changelog
 
+    - Remove `finite` (Use built-in Number.isFinite)
+
     #### 1.2.0
     - Add support for searching strings using `includes`
     - Use native `Object.assign` when available
