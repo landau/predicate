@@ -8,15 +8,14 @@
 [landau.github.io/predicate](http://landau.github.io/predicate/)
 
 ## install
-> npm install --save predicate
 
-or
-
-download the file from the [dist](https://github.com/landau/predicate/dist/predicate.js) directory
+```sh
+ npm install --save predicate
+```
 
 ## Tests
 
-`npm ts`
+`npm t`
 
 ## Build for the browser
 
