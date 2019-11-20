@@ -60,7 +60,11 @@ describe('predicate', function() {
         [0, 0],
         [NaN, 0 / 0]
       ],
-      falsey: [[0, -0], [0, false], [NaN, 0]]
+      falsey: [
+        [0, -0],
+        [0, false],
+        [NaN, 0]
+      ]
     },
 
     exists: {
@@ -89,13 +93,23 @@ describe('predicate', function() {
     },
 
     equal: {
-      truthy: [[0, 0], ['dog', 'dog']],
-      falsey: [[0, 1], ['cat', 'dog'], [0, '0']]
+      truthy: [
+        [0, 0],
+        ['dog', 'dog']
+      ],
+      falsey: [
+        [0, 1],
+        ['cat', 'dog'],
+        [0, '0']
+      ]
     },
 
     eq: {
       truthy: [[0, '0']],
-      falsey: [[0, 1], ['cat', 'dog']]
+      falsey: [
+        [0, 1],
+        ['cat', 'dog']
+      ]
     },
 
     less: {
@@ -109,12 +123,18 @@ describe('predicate', function() {
     },
 
     lessEq: {
-      truthy: [[0, 1], [0, 0]],
+      truthy: [
+        [0, 1],
+        [0, 0]
+      ],
       falsey: [[1, 0]]
     },
 
     greaterEq: {
-      truthy: [[1, 0], [0, 0]],
+      truthy: [
+        [1, 0],
+        [0, 0]
+      ],
       falsey: [[0, 1]]
     },
     object: {
@@ -199,7 +219,10 @@ describe('predicate', function() {
         [testClasses.Foo, new testClasses.Bar()],
         [testClasses.Bar, new testClasses.Bar()]
       ],
-      falsey: [[Array, {}], [testClasses.Bar, new testClasses.Foo()]]
+      falsey: [
+        [Array, {}],
+        [testClasses.Bar, new testClasses.Foo()]
+      ]
     },
 
     primitive: {
@@ -213,8 +236,14 @@ describe('predicate', function() {
     },
 
     matches: {
-      truthy: [[/foo/, 'foo'], [/\d{3}/, 123]],
-      falsey: [[/foo/, 'bar'], [/\d{3}/, 13]]
+      truthy: [
+        [/foo/, 'foo'],
+        [/\d{3}/, 123]
+      ],
+      falsey: [
+        [/foo/, 'bar'],
+        [/\d{3}/, 13]
+      ]
     }
   };
 
