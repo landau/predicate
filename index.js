@@ -11,7 +11,7 @@ const predicate = {
   ...utils,
   ...predicates,
   ...chain,
-  ...others
+  ...others,
 };
 
 module.exports = predicate;
