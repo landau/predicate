@@ -5,7 +5,7 @@
 const _ = require('lodash');
 require('should');
 const mocha = require('mocha');
-const predicate = require('../');
+const predicate = require('..');
 
 const describe = mocha.describe;
 const it = mocha.it;
