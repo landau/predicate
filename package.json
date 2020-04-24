@@ -60,7 +60,7 @@
     "marked": "0.8.2",
     "mocha": "7.1.1",
     "nyc": "15.0.1",
-    "prettier": "2.0.4",
+    "prettier": "2.0.5",
     "should": "13.2.3"
   },
   "dependencies": {}
