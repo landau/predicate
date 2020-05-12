@@ -5,6 +5,6 @@ module.exports = {
     'prefer-destructuring': 'off',
     'prefer-rest-params': 'off',
     'prefer-spread': 'off',
-    'max-classes-per-file': 'off'
-  }
+    'max-classes-per-file': 'off',
+  },
 };
