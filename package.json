@@ -48,7 +48,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@landau/eslint-config": "4.0.0",
+    "@landau/eslint-config": "4.0.1",
     "eslint": "7.1.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.20.2",
