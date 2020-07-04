@@ -37,5 +37,5 @@
       "semanticCommits": true
     }
   ],
-  "schedule": ["after 7pm on Thursday", "every weekend"]
+  "schedule": ["before 3am on the first day of the month"]
 }
