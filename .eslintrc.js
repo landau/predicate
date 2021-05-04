@@ -6,5 +6,7 @@ module.exports = {
     'prefer-rest-params': 'off',
     'prefer-spread': 'off',
     'max-classes-per-file': 'off',
+    // FIXME: This rule is new and should be used where appropriate.
+    'prefer-arrow-callback': 'off',
   },
 };
