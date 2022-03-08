@@ -57,7 +57,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "jade": "1.11.0",
     "lodash": "4.17.21",
-    "marked": "3.0.7",
+    "marked": "4.0.10",
     "mocha": "9.2.0",
     "nyc": "15.1.0",
     "prettier": "2.4.1",
